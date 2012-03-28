@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WKSAModelStoreContainer" CdmEntityContainer="WKSAEntities">
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="WKSAModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Venues">
+      <EntityTypeMapping TypeName="WKSAModel.Venue">
+        <MappingFragment StoreEntitySet="Venue">
+          <ScalarProperty Name="VenueId" ColumnName="VenueId" />
+          <ScalarProperty Name="VenueName" ColumnName="VenueName" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address3" ColumnName="Address3" />
+          <ScalarProperty Name="Address4" ColumnName="Address4" />
+          <ScalarProperty Name="Address5" ColumnName="Address5" />
+          <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DivisionTypes">
+      <EntityTypeMapping TypeName="WKSAModel.DivisionType">
+        <MappingFragment StoreEntitySet="DivisionType">
+          <ScalarProperty Name="IsGrandChampionDivision" ColumnName="IsGrandChampionDivision" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DivisionTypeId" ColumnName="DivisionTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ranks">
+      <EntityTypeMapping TypeName="WKSAModel.Rank">
+        <MappingFragment StoreEntitySet="Rank">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="RankId" ColumnName="RankId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AgeGroups">
+      <EntityTypeMapping TypeName="WKSAModel.AgeGroup">
+        <MappingFragment StoreEntitySet="AgeGroup">
+          <ScalarProperty Name="IsSparringGroup" ColumnName="IsSparringGroup" />
+          <ScalarProperty Name="ToAge" ColumnName="ToAge" />
+          <ScalarProperty Name="FromAge" ColumnName="FromAge" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AgeGroupId" ColumnName="AgeGroupId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Divisions">
+      <EntityTypeMapping TypeName="WKSAModel.Division">
+        <MappingFragment StoreEntitySet="Division">
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="AgeGroupId" ColumnName="AgeGroupId" />
+          <ScalarProperty Name="RankId" ColumnName="RankId" />
+          <ScalarProperty Name="DivisionTypeId" ColumnName="DivisionTypeId" />
+          <ScalarProperty Name="DivisionName" ColumnName="DivisionName" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tournaments">
+      <EntityTypeMapping TypeName="WKSAModel.Tournament">
+        <MappingFragment StoreEntitySet="Tournament">
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="VenueId" ColumnName="VenueId" />
+          <ScalarProperty Name="TournamentName" ColumnName="TournamentName" />
+          <ScalarProperty Name="TournamentId" ColumnName="TournamentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompetitorDivisions">
+      <EntityTypeMapping TypeName="WKSAModel.CompetitorDivision">
+        <MappingFragment StoreEntitySet="CompetitorDivision">
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="TournamentDivisionId" ColumnName="TournamentDivisionId" />
+          <ScalarProperty Name="CompetitorId" ColumnName="CompetitorId" />
+          <ScalarProperty Name="CompetitorDivisionId" ColumnName="CompetitorDivisionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="WKSAModel.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="IsSchoolOwner" ColumnName="IsSchoolOwner" />
+          <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="RankId" ColumnName="RankId" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+          <ScalarProperty Name="Address5" ColumnName="Address5" />
+          <ScalarProperty Name="Address4" ColumnName="Address4" />
+          <ScalarProperty Name="Address3" ColumnName="Address3" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="BlackBeltId" ColumnName="BlackBeltId" />
+          <ScalarProperty Name="WKSAId" ColumnName="WKSAId" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Schools">
+      <EntityTypeMapping TypeName="WKSAModel.School">
+        <MappingFragment StoreEntitySet="School">
+          <ScalarProperty Name="InstructorId" ColumnName="InstructorId" />
+          <ScalarProperty Name="InstructorName" ColumnName="InstructorName" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+          <ScalarProperty Name="SchoolCode" ColumnName="SchoolCode" />
+          <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Competitors">
+      <EntityTypeMapping TypeName="WKSAModel.Competitor">
+        <MappingFragment StoreEntitySet="Competitor">
+          <ScalarProperty Name="Fee" ColumnName="Fee" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="TournamentId" ColumnName="TournamentId" />
+          <ScalarProperty Name="CompetitorId" ColumnName="CompetitorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TournamentDivisions">
+      <EntityTypeMapping TypeName="WKSAModel.TournamentDivision">
+        <MappingFragment StoreEntitySet="TournamentDivision">
+          <ScalarProperty Name="MedalsReceived" ColumnName="MedalsReceived" />
+          <ScalarProperty Name="IsCompleted" ColumnName="IsCompleted" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+          <ScalarProperty Name="TournamentId" ColumnName="TournamentId" />
+          <ScalarProperty Name="TournamentEventId" ColumnName="TournamentEventId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

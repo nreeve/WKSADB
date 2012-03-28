@@ -1,0 +1,6 @@
+C:\Users\nreeve\Documents\Visual Studio 2010\Projects\WKSADB\WKSADB\bin\Debug\WKSADB.dll.config
+C:\Users\nreeve\Documents\Visual Studio 2010\Projects\WKSADB\WKSADB\bin\Debug\WKSADB.dll
+C:\Users\nreeve\Documents\Visual Studio 2010\Projects\WKSADB\WKSADB\bin\Debug\WKSADB.pdb
+C:\Users\nreeve\Documents\Visual Studio 2010\Projects\WKSADB\WKSADB\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\nreeve\Documents\Visual Studio 2010\Projects\WKSADB\WKSADB\obj\Debug\WKSADB.dll
+C:\Users\nreeve\Documents\Visual Studio 2010\Projects\WKSADB\WKSADB\obj\Debug\WKSADB.pdb
