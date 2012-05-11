@@ -11,6 +11,7 @@ namespace WKSADB
     partial class Tournament
     {
         public int[] SelectedDivisionIds { get; set; }
+        public int[] SelectedGrandChampionIds { get; set; }
     }
 
     public class TournamentMetaData
@@ -20,8 +21,5 @@ namespace WKSADB
 
         [Required]
         public int VenueId { get; set; }
-
-        [Required]
-        public int[] SelectedDivisionIds { get; set; }
     }
 }

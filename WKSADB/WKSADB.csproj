@@ -47,7 +47,10 @@
     <Compile Include="Competitor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="School.cs" />
+    <Compile Include="Student.cs" />
     <Compile Include="Tournament.cs" />
+    <Compile Include="CompetitorDivision.cs" />
+    <Compile Include="WKSADBConstants.cs" />
     <Compile Include="WKSAEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

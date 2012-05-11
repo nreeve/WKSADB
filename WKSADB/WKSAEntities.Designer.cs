@@ -23,17 +23,22 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("WKSAModel", "FK_TBL_EVENT_TBL_EVENT_TYPE", "DivisionType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(WKSADB.DivisionType), "Division", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.Division), true)]
 [assembly: EdmRelationshipAttribute("WKSAModel", "FK_TBL_EVENT_TBL_RANK", "Rank", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(WKSADB.Rank), "Division", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.Division), true)]
 [assembly: EdmRelationshipAttribute("WKSAModel", "FK_TBL_TOURNAMENT_TBL_VENUE", "Venue", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(WKSADB.Venue), "Tournament", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.Tournament), true)]
-[assembly: EdmRelationshipAttribute("WKSAModel", "FK_TBL_STUDENT_TBL_COUNTRY", "Country", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(WKSADB.Country), "Student", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.Student), true)]
-[assembly: EdmRelationshipAttribute("WKSAModel", "FK_TBL_STUDENT_TBL_RANK", "Rank", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(WKSADB.Rank), "Student", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.Student), true)]
 [assembly: EdmRelationshipAttribute("WKSAModel", "FK_TBL_SCHOOL_TBL_COUNTRY", "Country", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(WKSADB.Country), "School", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.School), true)]
-[assembly: EdmRelationshipAttribute("WKSAModel", "FK_TBL_SCHOOL_TBL_STUDENT", "Student", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(WKSADB.Student), "School", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.School), true)]
-[assembly: EdmRelationshipAttribute("WKSAModel", "FK_TBL_STUDENT_TBL_SCHOOL", "School", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(WKSADB.School), "Student", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.Student), true)]
-[assembly: EdmRelationshipAttribute("WKSAModel", "FK_TBL_COMPETITOR_EVENT_TBL_COMPETITOR", "Competitor", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(WKSADB.Competitor), "CompetitorDivision", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.CompetitorDivision), true)]
-[assembly: EdmRelationshipAttribute("WKSAModel", "FK_TBL_COMPETITOR_TBL_STUDENT", "Student", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(WKSADB.Student), "Competitor", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.Competitor), true)]
-[assembly: EdmRelationshipAttribute("WKSAModel", "FK_TBL_COMPETITOR_TBL_TOURNAMENT", "Tournament", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(WKSADB.Tournament), "Competitor", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.Competitor), true)]
-[assembly: EdmRelationshipAttribute("WKSAModel", "FK_TBL_COMPETITOR_EVENT_TBL_TOURNAMENT_EVENT", "TournamentDivision", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(WKSADB.TournamentDivision), "CompetitorDivision", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.CompetitorDivision), true)]
 [assembly: EdmRelationshipAttribute("WKSAModel", "FK_TBL_TOURNAMENT_EVENT_TBL_EVENT", "Division", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(WKSADB.Division), "TournamentDivision", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.TournamentDivision), true)]
 [assembly: EdmRelationshipAttribute("WKSAModel", "FK_TBL_TOURNAMENT_EVENT_TBL_TOURNAMENT", "Tournament", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(WKSADB.Tournament), "TournamentDivision", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.TournamentDivision), true)]
+[assembly: EdmRelationshipAttribute("WKSAModel", "FK_TBL_STUDENT_TBL_COUNTRY", "Country", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(WKSADB.Country), "Student", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.Student), true)]
+[assembly: EdmRelationshipAttribute("WKSAModel", "FK_TBL_STUDENT_TBL_RANK", "Rank", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(WKSADB.Rank), "Student", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.Student), true)]
+[assembly: EdmRelationshipAttribute("WKSAModel", "FK_TBL_SCHOOL_TBL_STUDENT", "Student", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(WKSADB.Student), "School", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.School), true)]
+[assembly: EdmRelationshipAttribute("WKSAModel", "FK_TBL_STUDENT_TBL_SCHOOL", "School", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(WKSADB.School), "Student", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.Student), true)]
+[assembly: EdmRelationshipAttribute("WKSAModel", "FK_CompetitorDivision_Division", "Division", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(WKSADB.Division), "CompetitorDivision", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.CompetitorDivision), true)]
+[assembly: EdmRelationshipAttribute("WKSAModel", "FK_AgeGroup_AgeGroup", "AgeGroup", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(WKSADB.AgeGroup), "AgeGroup1", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.AgeGroup), true)]
+[assembly: EdmRelationshipAttribute("WKSAModel", "FK_Competitor_Rank", "Rank", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(WKSADB.Rank), "Competitor", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.Competitor), true)]
+[assembly: EdmRelationshipAttribute("WKSAModel", "FK_CompetitorDivision_Competitor", "Competitor", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(WKSADB.Competitor), "CompetitorDivision", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.CompetitorDivision), true)]
+[assembly: EdmRelationshipAttribute("WKSAModel", "FK_TBL_COMPETITOR_TBL_STUDENT", "Student", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(WKSADB.Student), "Competitor", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.Competitor), true)]
+[assembly: EdmRelationshipAttribute("WKSAModel", "FK_TBL_COMPETITOR_TBL_TOURNAMENT", "Tournament", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(WKSADB.Tournament), "Competitor", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.Competitor), true)]
+[assembly: EdmRelationshipAttribute("WKSAModel", "FK_Competitor_GrandChampion", "GrandChampion", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(WKSADB.GrandChampion), "Competitor", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.Competitor), true)]
+[assembly: EdmRelationshipAttribute("WKSAModel", "FK_TBL_GRAND_CHAMP_TBL_RANK", "Rank", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(WKSADB.Rank), "GrandChampion", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.GrandChampion), true)]
+[assembly: EdmRelationshipAttribute("WKSAModel", "TournamentGrandChampion", "GrandChampion", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.GrandChampion), "Tournament", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.Tournament))]
 
 #endregion
 
@@ -200,18 +205,34 @@ namespace WKSADB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<CompetitorDivision> CompetitorDivisions
+        public ObjectSet<School> Schools
         {
             get
             {
-                if ((_CompetitorDivisions == null))
+                if ((_Schools == null))
                 {
-                    _CompetitorDivisions = base.CreateObjectSet<CompetitorDivision>("CompetitorDivisions");
+                    _Schools = base.CreateObjectSet<School>("Schools");
                 }
-                return _CompetitorDivisions;
+                return _Schools;
             }
         }
-        private ObjectSet<CompetitorDivision> _CompetitorDivisions;
+        private ObjectSet<School> _Schools;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<TournamentDivision> TournamentDivisions
+        {
+            get
+            {
+                if ((_TournamentDivisions == null))
+                {
+                    _TournamentDivisions = base.CreateObjectSet<TournamentDivision>("TournamentDivisions");
+                }
+                return _TournamentDivisions;
+            }
+        }
+        private ObjectSet<TournamentDivision> _TournamentDivisions;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -232,18 +253,18 @@ namespace WKSADB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<School> Schools
+        public ObjectSet<CompetitorDivision> CompetitorDivisions
         {
             get
             {
-                if ((_Schools == null))
+                if ((_CompetitorDivisions == null))
                 {
-                    _Schools = base.CreateObjectSet<School>("Schools");
+                    _CompetitorDivisions = base.CreateObjectSet<CompetitorDivision>("CompetitorDivisions");
                 }
-                return _Schools;
+                return _CompetitorDivisions;
             }
         }
-        private ObjectSet<School> _Schools;
+        private ObjectSet<CompetitorDivision> _CompetitorDivisions;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -264,18 +285,18 @@ namespace WKSADB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<TournamentDivision> TournamentDivisions
+        public ObjectSet<GrandChampion> GrandChampions
         {
             get
             {
-                if ((_TournamentDivisions == null))
+                if ((_GrandChampions == null))
                 {
-                    _TournamentDivisions = base.CreateObjectSet<TournamentDivision>("TournamentDivisions");
+                    _GrandChampions = base.CreateObjectSet<GrandChampion>("GrandChampions");
                 }
-                return _TournamentDivisions;
+                return _GrandChampions;
             }
         }
-        private ObjectSet<TournamentDivision> _TournamentDivisions;
+        private ObjectSet<GrandChampion> _GrandChampions;
 
         #endregion
         #region AddTo Methods
@@ -337,11 +358,19 @@ namespace WKSADB
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the CompetitorDivisions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Schools EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToCompetitorDivisions(CompetitorDivision competitorDivision)
+        public void AddToSchools(School school)
         {
-            base.AddObject("CompetitorDivisions", competitorDivision);
+            base.AddObject("Schools", school);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the TournamentDivisions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToTournamentDivisions(TournamentDivision tournamentDivision)
+        {
+            base.AddObject("TournamentDivisions", tournamentDivision);
         }
     
         /// <summary>
@@ -353,11 +382,11 @@ namespace WKSADB
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Schools EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the CompetitorDivisions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToSchools(School school)
+        public void AddToCompetitorDivisions(CompetitorDivision competitorDivision)
         {
-            base.AddObject("Schools", school);
+            base.AddObject("CompetitorDivisions", competitorDivision);
         }
     
         /// <summary>
@@ -369,11 +398,11 @@ namespace WKSADB
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the TournamentDivisions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the GrandChampions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToTournamentDivisions(TournamentDivision tournamentDivision)
+        public void AddToGrandChampions(GrandChampion grandChampion)
         {
-            base.AddObject("TournamentDivisions", tournamentDivision);
+            base.AddObject("GrandChampions", grandChampion);
         }
 
         #endregion
@@ -534,6 +563,30 @@ namespace WKSADB
         private global::System.Boolean _IsSparringGroup;
         partial void OnIsSparringGroupChanging(global::System.Boolean value);
         partial void OnIsSparringGroupChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ParentAgeGroupId
+        {
+            get
+            {
+                return _ParentAgeGroupId;
+            }
+            set
+            {
+                OnParentAgeGroupIdChanging(value);
+                ReportPropertyChanging("ParentAgeGroupId");
+                _ParentAgeGroupId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ParentAgeGroupId");
+                OnParentAgeGroupIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ParentAgeGroupId;
+        partial void OnParentAgeGroupIdChanging(Nullable<global::System.Int32> value);
+        partial void OnParentAgeGroupIdChanged();
 
         #endregion
     
@@ -560,6 +613,66 @@ namespace WKSADB
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_AgeGroup_AgeGroup", "AgeGroup1")]
+        public EntityCollection<AgeGroup> AgeGroup1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<AgeGroup>("WKSAModel.FK_AgeGroup_AgeGroup", "AgeGroup1");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<AgeGroup>("WKSAModel.FK_AgeGroup_AgeGroup", "AgeGroup1", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_AgeGroup_AgeGroup", "AgeGroup")]
+        public AgeGroup AgeGroup2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AgeGroup>("WKSAModel.FK_AgeGroup_AgeGroup", "AgeGroup").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AgeGroup>("WKSAModel.FK_AgeGroup_AgeGroup", "AgeGroup").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<AgeGroup> AgeGroup2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AgeGroup>("WKSAModel.FK_AgeGroup_AgeGroup", "AgeGroup");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<AgeGroup>("WKSAModel.FK_AgeGroup_AgeGroup", "AgeGroup", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -581,13 +694,17 @@ namespace WKSADB
         /// <param name="tournamentId">Initial value of the TournamentId property.</param>
         /// <param name="studentId">Initial value of the StudentId property.</param>
         /// <param name="fee">Initial value of the Fee property.</param>
-        public static Competitor CreateCompetitor(global::System.Int32 competitorId, global::System.Int32 tournamentId, global::System.Int32 studentId, global::System.Decimal fee)
+        /// <param name="rankId">Initial value of the RankId property.</param>
+        /// <param name="age">Initial value of the Age property.</param>
+        public static Competitor CreateCompetitor(global::System.Int32 competitorId, global::System.Int32 tournamentId, global::System.Int32 studentId, global::System.Decimal fee, global::System.Int32 rankId, global::System.Int32 age)
         {
             Competitor competitor = new Competitor();
             competitor.CompetitorId = competitorId;
             competitor.TournamentId = tournamentId;
             competitor.StudentId = studentId;
             competitor.Fee = fee;
+            competitor.RankId = rankId;
+            competitor.Age = age;
             return competitor;
         }
 
@@ -692,6 +809,78 @@ namespace WKSADB
         private global::System.Decimal _Fee;
         partial void OnFeeChanging(global::System.Decimal value);
         partial void OnFeeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 RankId
+        {
+            get
+            {
+                return _RankId;
+            }
+            set
+            {
+                OnRankIdChanging(value);
+                ReportPropertyChanging("RankId");
+                _RankId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("RankId");
+                OnRankIdChanged();
+            }
+        }
+        private global::System.Int32 _RankId;
+        partial void OnRankIdChanging(global::System.Int32 value);
+        partial void OnRankIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Age
+        {
+            get
+            {
+                return _Age;
+            }
+            set
+            {
+                OnAgeChanging(value);
+                ReportPropertyChanging("Age");
+                _Age = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Age");
+                OnAgeChanged();
+            }
+        }
+        private global::System.Int32 _Age;
+        partial void OnAgeChanging(global::System.Int32 value);
+        partial void OnAgeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> GrandChampionId
+        {
+            get
+            {
+                return _GrandChampionId;
+            }
+            set
+            {
+                OnGrandChampionIdChanging(value);
+                ReportPropertyChanging("GrandChampionId");
+                _GrandChampionId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("GrandChampionId");
+                OnGrandChampionIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _GrandChampionId;
+        partial void OnGrandChampionIdChanging(Nullable<global::System.Int32> value);
+        partial void OnGrandChampionIdChanged();
 
         #endregion
     
@@ -703,18 +892,56 @@ namespace WKSADB
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_TBL_COMPETITOR_EVENT_TBL_COMPETITOR", "CompetitorDivision")]
-        public EntityCollection<CompetitorDivision> CompetitorDivisions
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_Competitor_Rank", "Rank")]
+        public Rank Rank
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CompetitorDivision>("WKSAModel.FK_TBL_COMPETITOR_EVENT_TBL_COMPETITOR", "CompetitorDivision");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rank>("WKSAModel.FK_Competitor_Rank", "Rank").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rank>("WKSAModel.FK_Competitor_Rank", "Rank").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Rank> RankReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rank>("WKSAModel.FK_Competitor_Rank", "Rank");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CompetitorDivision>("WKSAModel.FK_TBL_COMPETITOR_EVENT_TBL_COMPETITOR", "CompetitorDivision", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Rank>("WKSAModel.FK_Competitor_Rank", "Rank", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_CompetitorDivision_Competitor", "CompetitorDivision")]
+        public EntityCollection<CompetitorDivision> CompetitorDivisions
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CompetitorDivision>("WKSAModel.FK_CompetitorDivision_Competitor", "CompetitorDivision");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CompetitorDivision>("WKSAModel.FK_CompetitorDivision_Competitor", "CompetitorDivision", value);
                 }
             }
         }
@@ -794,6 +1021,44 @@ namespace WKSADB
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_Competitor_GrandChampion", "GrandChampion")]
+        public GrandChampion GrandChampion
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<GrandChampion>("WKSAModel.FK_Competitor_GrandChampion", "GrandChampion").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<GrandChampion>("WKSAModel.FK_Competitor_GrandChampion", "GrandChampion").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<GrandChampion> GrandChampionReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<GrandChampion>("WKSAModel.FK_Competitor_GrandChampion", "GrandChampion");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<GrandChampion>("WKSAModel.FK_Competitor_GrandChampion", "GrandChampion", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -811,17 +1076,13 @@ namespace WKSADB
         /// <summary>
         /// Create a new CompetitorDivision object.
         /// </summary>
-        /// <param name="competitorDivisionId">Initial value of the CompetitorDivisionId property.</param>
         /// <param name="competitorId">Initial value of the CompetitorId property.</param>
-        /// <param name="tournamentDivisionId">Initial value of the TournamentDivisionId property.</param>
-        /// <param name="result">Initial value of the Result property.</param>
-        public static CompetitorDivision CreateCompetitorDivision(global::System.Int32 competitorDivisionId, global::System.Int32 competitorId, global::System.Int32 tournamentDivisionId, global::System.Byte result)
+        /// <param name="divisionId">Initial value of the DivisionId property.</param>
+        public static CompetitorDivision CreateCompetitorDivision(global::System.Int32 competitorId, global::System.Int32 divisionId)
         {
             CompetitorDivision competitorDivision = new CompetitorDivision();
-            competitorDivision.CompetitorDivisionId = competitorDivisionId;
             competitorDivision.CompetitorId = competitorId;
-            competitorDivision.TournamentDivisionId = tournamentDivisionId;
-            competitorDivision.Result = result;
+            competitorDivision.DivisionId = divisionId;
             return competitorDivision;
         }
 
@@ -833,33 +1094,6 @@ namespace WKSADB
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 CompetitorDivisionId
-        {
-            get
-            {
-                return _CompetitorDivisionId;
-            }
-            set
-            {
-                if (_CompetitorDivisionId != value)
-                {
-                    OnCompetitorDivisionIdChanging(value);
-                    ReportPropertyChanging("CompetitorDivisionId");
-                    _CompetitorDivisionId = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("CompetitorDivisionId");
-                    OnCompetitorDivisionIdChanged();
-                }
-            }
-        }
-        private global::System.Int32 _CompetitorDivisionId;
-        partial void OnCompetitorDivisionIdChanging(global::System.Int32 value);
-        partial void OnCompetitorDivisionIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
         public global::System.Int32 CompetitorId
         {
             get
@@ -868,11 +1102,14 @@ namespace WKSADB
             }
             set
             {
-                OnCompetitorIdChanging(value);
-                ReportPropertyChanging("CompetitorId");
-                _CompetitorId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("CompetitorId");
-                OnCompetitorIdChanged();
+                if (_CompetitorId != value)
+                {
+                    OnCompetitorIdChanging(value);
+                    ReportPropertyChanging("CompetitorId");
+                    _CompetitorId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("CompetitorId");
+                    OnCompetitorIdChanged();
+                }
             }
         }
         private global::System.Int32 _CompetitorId;
@@ -882,33 +1119,36 @@ namespace WKSADB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 TournamentDivisionId
+        public global::System.Int32 DivisionId
         {
             get
             {
-                return _TournamentDivisionId;
+                return _DivisionId;
             }
             set
             {
-                OnTournamentDivisionIdChanging(value);
-                ReportPropertyChanging("TournamentDivisionId");
-                _TournamentDivisionId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("TournamentDivisionId");
-                OnTournamentDivisionIdChanged();
+                if (_DivisionId != value)
+                {
+                    OnDivisionIdChanging(value);
+                    ReportPropertyChanging("DivisionId");
+                    _DivisionId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("DivisionId");
+                    OnDivisionIdChanged();
+                }
             }
         }
-        private global::System.Int32 _TournamentDivisionId;
-        partial void OnTournamentDivisionIdChanging(global::System.Int32 value);
-        partial void OnTournamentDivisionIdChanged();
+        private global::System.Int32 _DivisionId;
+        partial void OnDivisionIdChanging(global::System.Int32 value);
+        partial void OnDivisionIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Byte Result
+        public Nullable<global::System.Int32> Result
         {
             get
             {
@@ -923,8 +1163,8 @@ namespace WKSADB
                 OnResultChanged();
             }
         }
-        private global::System.Byte _Result;
-        partial void OnResultChanging(global::System.Byte value);
+        private Nullable<global::System.Int32> _Result;
+        partial void OnResultChanging(Nullable<global::System.Int32> value);
         partial void OnResultChanged();
 
         #endregion
@@ -937,16 +1177,54 @@ namespace WKSADB
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_TBL_COMPETITOR_EVENT_TBL_COMPETITOR", "Competitor")]
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_CompetitorDivision_Division", "Division")]
+        public Division Division
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Division>("WKSAModel.FK_CompetitorDivision_Division", "Division").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Division>("WKSAModel.FK_CompetitorDivision_Division", "Division").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Division> DivisionReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Division>("WKSAModel.FK_CompetitorDivision_Division", "Division");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Division>("WKSAModel.FK_CompetitorDivision_Division", "Division", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_CompetitorDivision_Competitor", "Competitor")]
         public Competitor Competitor
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Competitor>("WKSAModel.FK_TBL_COMPETITOR_EVENT_TBL_COMPETITOR", "Competitor").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Competitor>("WKSAModel.FK_CompetitorDivision_Competitor", "Competitor").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Competitor>("WKSAModel.FK_TBL_COMPETITOR_EVENT_TBL_COMPETITOR", "Competitor").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Competitor>("WKSAModel.FK_CompetitorDivision_Competitor", "Competitor").Value = value;
             }
         }
         /// <summary>
@@ -958,51 +1236,13 @@ namespace WKSADB
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Competitor>("WKSAModel.FK_TBL_COMPETITOR_EVENT_TBL_COMPETITOR", "Competitor");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Competitor>("WKSAModel.FK_CompetitorDivision_Competitor", "Competitor");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Competitor>("WKSAModel.FK_TBL_COMPETITOR_EVENT_TBL_COMPETITOR", "Competitor", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_TBL_COMPETITOR_EVENT_TBL_TOURNAMENT_EVENT", "TournamentDivision")]
-        public TournamentDivision TournamentDivision
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TournamentDivision>("WKSAModel.FK_TBL_COMPETITOR_EVENT_TBL_TOURNAMENT_EVENT", "TournamentDivision").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TournamentDivision>("WKSAModel.FK_TBL_COMPETITOR_EVENT_TBL_TOURNAMENT_EVENT", "TournamentDivision").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<TournamentDivision> TournamentDivisionReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TournamentDivision>("WKSAModel.FK_TBL_COMPETITOR_EVENT_TBL_TOURNAMENT_EVENT", "TournamentDivision");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TournamentDivision>("WKSAModel.FK_TBL_COMPETITOR_EVENT_TBL_TOURNAMENT_EVENT", "TournamentDivision", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Competitor>("WKSAModel.FK_CompetitorDivision_Competitor", "Competitor", value);
                 }
             }
         }
@@ -1119,28 +1359,6 @@ namespace WKSADB
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_TBL_STUDENT_TBL_COUNTRY", "Student")]
-        public EntityCollection<Student> Students
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Student>("WKSAModel.FK_TBL_STUDENT_TBL_COUNTRY", "Student");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Student>("WKSAModel.FK_TBL_STUDENT_TBL_COUNTRY", "Student", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_TBL_SCHOOL_TBL_COUNTRY", "School")]
         public EntityCollection<School> Schools
         {
@@ -1153,6 +1371,28 @@ namespace WKSADB
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<School>("WKSAModel.FK_TBL_SCHOOL_TBL_COUNTRY", "School", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_TBL_STUDENT_TBL_COUNTRY", "Student")]
+        public EntityCollection<Student> Students
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Student>("WKSAModel.FK_TBL_STUDENT_TBL_COUNTRY", "Student");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Student>("WKSAModel.FK_TBL_STUDENT_TBL_COUNTRY", "Student", value);
                 }
             }
         }
@@ -1478,6 +1718,28 @@ namespace WKSADB
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_CompetitorDivision_Division", "CompetitorDivision")]
+        public EntityCollection<CompetitorDivision> CompetitorDivisions
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CompetitorDivision>("WKSAModel.FK_CompetitorDivision_Division", "CompetitorDivision");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CompetitorDivision>("WKSAModel.FK_CompetitorDivision_Division", "CompetitorDivision", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -1617,6 +1879,296 @@ namespace WKSADB
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="WKSAModel", Name="GrandChampion")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class GrandChampion : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new GrandChampion object.
+        /// </summary>
+        /// <param name="grandChampionId">Initial value of the GrandChampionId property.</param>
+        /// <param name="description">Initial value of the Description property.</param>
+        /// <param name="rankId">Initial value of the RankId property.</param>
+        /// <param name="divisionCount">Initial value of the DivisionCount property.</param>
+        public static GrandChampion CreateGrandChampion(global::System.Int32 grandChampionId, global::System.String description, global::System.Int32 rankId, global::System.Int32 divisionCount)
+        {
+            GrandChampion grandChampion = new GrandChampion();
+            grandChampion.GrandChampionId = grandChampionId;
+            grandChampion.Description = description;
+            grandChampion.RankId = rankId;
+            grandChampion.DivisionCount = divisionCount;
+            return grandChampion;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 GrandChampionId
+        {
+            get
+            {
+                return _GrandChampionId;
+            }
+            set
+            {
+                if (_GrandChampionId != value)
+                {
+                    OnGrandChampionIdChanging(value);
+                    ReportPropertyChanging("GrandChampionId");
+                    _GrandChampionId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("GrandChampionId");
+                    OnGrandChampionIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _GrandChampionId;
+        partial void OnGrandChampionIdChanging(global::System.Int32 value);
+        partial void OnGrandChampionIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 RankId
+        {
+            get
+            {
+                return _RankId;
+            }
+            set
+            {
+                OnRankIdChanging(value);
+                ReportPropertyChanging("RankId");
+                _RankId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("RankId");
+                OnRankIdChanged();
+            }
+        }
+        private global::System.Int32 _RankId;
+        partial void OnRankIdChanging(global::System.Int32 value);
+        partial void OnRankIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> FromAge
+        {
+            get
+            {
+                return _FromAge;
+            }
+            set
+            {
+                OnFromAgeChanging(value);
+                ReportPropertyChanging("FromAge");
+                _FromAge = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FromAge");
+                OnFromAgeChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _FromAge;
+        partial void OnFromAgeChanging(Nullable<global::System.Int32> value);
+        partial void OnFromAgeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ToAge
+        {
+            get
+            {
+                return _ToAge;
+            }
+            set
+            {
+                OnToAgeChanging(value);
+                ReportPropertyChanging("ToAge");
+                _ToAge = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ToAge");
+                OnToAgeChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ToAge;
+        partial void OnToAgeChanging(Nullable<global::System.Int32> value);
+        partial void OnToAgeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Gender
+        {
+            get
+            {
+                return _Gender;
+            }
+            set
+            {
+                OnGenderChanging(value);
+                ReportPropertyChanging("Gender");
+                _Gender = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Gender");
+                OnGenderChanged();
+            }
+        }
+        private global::System.String _Gender;
+        partial void OnGenderChanging(global::System.String value);
+        partial void OnGenderChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 DivisionCount
+        {
+            get
+            {
+                return _DivisionCount;
+            }
+            set
+            {
+                OnDivisionCountChanging(value);
+                ReportPropertyChanging("DivisionCount");
+                _DivisionCount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DivisionCount");
+                OnDivisionCountChanged();
+            }
+        }
+        private global::System.Int32 _DivisionCount;
+        partial void OnDivisionCountChanging(global::System.Int32 value);
+        partial void OnDivisionCountChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_Competitor_GrandChampion", "Competitor")]
+        public EntityCollection<Competitor> Competitors
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Competitor>("WKSAModel.FK_Competitor_GrandChampion", "Competitor");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Competitor>("WKSAModel.FK_Competitor_GrandChampion", "Competitor", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_TBL_GRAND_CHAMP_TBL_RANK", "Rank")]
+        public Rank Rank
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rank>("WKSAModel.FK_TBL_GRAND_CHAMP_TBL_RANK", "Rank").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rank>("WKSAModel.FK_TBL_GRAND_CHAMP_TBL_RANK", "Rank").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Rank> RankReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rank>("WKSAModel.FK_TBL_GRAND_CHAMP_TBL_RANK", "Rank");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Rank>("WKSAModel.FK_TBL_GRAND_CHAMP_TBL_RANK", "Rank", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "TournamentGrandChampion", "Tournament")]
+        public EntityCollection<Tournament> Tournaments
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Tournament>("WKSAModel.TournamentGrandChampion", "Tournament");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Tournament>("WKSAModel.TournamentGrandChampion", "Tournament", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="WKSAModel", Name="Rank")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -1735,6 +2287,50 @@ namespace WKSADB
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Student>("WKSAModel.FK_TBL_STUDENT_TBL_RANK", "Student", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_Competitor_Rank", "Competitor")]
+        public EntityCollection<Competitor> Competitors
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Competitor>("WKSAModel.FK_Competitor_Rank", "Competitor");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Competitor>("WKSAModel.FK_Competitor_Rank", "Competitor", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_TBL_GRAND_CHAMP_TBL_RANK", "GrandChampion")]
+        public EntityCollection<GrandChampion> GrandChampions
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<GrandChampion>("WKSAModel.FK_TBL_GRAND_CHAMP_TBL_RANK", "GrandChampion");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<GrandChampion>("WKSAModel.FK_TBL_GRAND_CHAMP_TBL_RANK", "GrandChampion", value);
                 }
             }
         }
@@ -1920,6 +2516,54 @@ namespace WKSADB
         private Nullable<global::System.Int32> _InstructorId;
         partial void OnInstructorIdChanging(Nullable<global::System.Int32> value);
         partial void OnInstructorIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String State
+        {
+            get
+            {
+                return _State;
+            }
+            set
+            {
+                OnStateChanging(value);
+                ReportPropertyChanging("State");
+                _State = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("State");
+                OnStateChanged();
+            }
+        }
+        private global::System.String _State;
+        partial void OnStateChanging(global::System.String value);
+        partial void OnStateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Rank
+        {
+            get
+            {
+                return _Rank;
+            }
+            set
+            {
+                OnRankChanging(value);
+                ReportPropertyChanging("Rank");
+                _Rank = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Rank");
+                OnRankChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Rank;
+        partial void OnRankChanging(Nullable<global::System.Int32> value);
+        partial void OnRankChanged();
 
         #endregion
     
@@ -2042,18 +2686,16 @@ namespace WKSADB
         /// <param name="studentId">Initial value of the StudentId property.</param>
         /// <param name="firstName">Initial value of the FirstName property.</param>
         /// <param name="lastName">Initial value of the LastName property.</param>
-        /// <param name="countryId">Initial value of the CountryId property.</param>
         /// <param name="rankId">Initial value of the RankId property.</param>
         /// <param name="gender">Initial value of the Gender property.</param>
         /// <param name="schoolId">Initial value of the SchoolId property.</param>
         /// <param name="isSchoolOwner">Initial value of the IsSchoolOwner property.</param>
-        public static Student CreateStudent(global::System.Int32 studentId, global::System.String firstName, global::System.String lastName, global::System.Int32 countryId, global::System.Int32 rankId, global::System.String gender, global::System.Int32 schoolId, global::System.Boolean isSchoolOwner)
+        public static Student CreateStudent(global::System.Int32 studentId, global::System.String firstName, global::System.String lastName, global::System.Int32 rankId, global::System.String gender, global::System.Int32 schoolId, global::System.Boolean isSchoolOwner)
         {
             Student student = new Student();
             student.StudentId = studentId;
             student.FirstName = firstName;
             student.LastName = lastName;
-            student.CountryId = countryId;
             student.RankId = rankId;
             student.Gender = gender;
             student.SchoolId = schoolId;
@@ -2358,9 +3000,9 @@ namespace WKSADB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 CountryId
+        public Nullable<global::System.Int32> CountryId
         {
             get
             {
@@ -2375,8 +3017,8 @@ namespace WKSADB
                 OnCountryIdChanged();
             }
         }
-        private global::System.Int32 _CountryId;
-        partial void OnCountryIdChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _CountryId;
+        partial void OnCountryIdChanging(Nullable<global::System.Int32> value);
         partial void OnCountryIdChanged();
     
         /// <summary>
@@ -2843,6 +3485,28 @@ namespace WKSADB
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_TBL_TOURNAMENT_EVENT_TBL_TOURNAMENT", "TournamentDivision")]
+        public EntityCollection<TournamentDivision> TournamentDivisions
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TournamentDivision>("WKSAModel.FK_TBL_TOURNAMENT_EVENT_TBL_TOURNAMENT", "TournamentDivision");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TournamentDivision>("WKSAModel.FK_TBL_TOURNAMENT_EVENT_TBL_TOURNAMENT", "TournamentDivision", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_TBL_COMPETITOR_TBL_TOURNAMENT", "Competitor")]
         public EntityCollection<Competitor> Competitors
         {
@@ -2865,18 +3529,18 @@ namespace WKSADB
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_TBL_TOURNAMENT_EVENT_TBL_TOURNAMENT", "TournamentDivision")]
-        public EntityCollection<TournamentDivision> TournamentDivisions
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "TournamentGrandChampion", "GrandChampion")]
+        public EntityCollection<GrandChampion> GrandChampions
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TournamentDivision>("WKSAModel.FK_TBL_TOURNAMENT_EVENT_TBL_TOURNAMENT", "TournamentDivision");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<GrandChampion>("WKSAModel.TournamentGrandChampion", "GrandChampion");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TournamentDivision>("WKSAModel.FK_TBL_TOURNAMENT_EVENT_TBL_TOURNAMENT", "TournamentDivision", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<GrandChampion>("WKSAModel.TournamentGrandChampion", "GrandChampion", value);
                 }
             }
         }
@@ -2897,15 +3561,13 @@ namespace WKSADB
         /// <summary>
         /// Create a new TournamentDivision object.
         /// </summary>
-        /// <param name="tournamentEventId">Initial value of the TournamentEventId property.</param>
         /// <param name="tournamentId">Initial value of the TournamentId property.</param>
         /// <param name="divisionId">Initial value of the DivisionId property.</param>
         /// <param name="isCompleted">Initial value of the IsCompleted property.</param>
         /// <param name="medalsReceived">Initial value of the MedalsReceived property.</param>
-        public static TournamentDivision CreateTournamentDivision(global::System.Int32 tournamentEventId, global::System.Int32 tournamentId, global::System.Int32 divisionId, global::System.Boolean isCompleted, global::System.Boolean medalsReceived)
+        public static TournamentDivision CreateTournamentDivision(global::System.Int32 tournamentId, global::System.Int32 divisionId, global::System.Boolean isCompleted, global::System.Boolean medalsReceived)
         {
             TournamentDivision tournamentDivision = new TournamentDivision();
-            tournamentDivision.TournamentEventId = tournamentEventId;
             tournamentDivision.TournamentId = tournamentId;
             tournamentDivision.DivisionId = divisionId;
             tournamentDivision.IsCompleted = isCompleted;
@@ -2921,33 +3583,6 @@ namespace WKSADB
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 TournamentEventId
-        {
-            get
-            {
-                return _TournamentEventId;
-            }
-            set
-            {
-                if (_TournamentEventId != value)
-                {
-                    OnTournamentEventIdChanging(value);
-                    ReportPropertyChanging("TournamentEventId");
-                    _TournamentEventId = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("TournamentEventId");
-                    OnTournamentEventIdChanged();
-                }
-            }
-        }
-        private global::System.Int32 _TournamentEventId;
-        partial void OnTournamentEventIdChanging(global::System.Int32 value);
-        partial void OnTournamentEventIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
         public global::System.Int32 TournamentId
         {
             get
@@ -2956,11 +3591,14 @@ namespace WKSADB
             }
             set
             {
-                OnTournamentIdChanging(value);
-                ReportPropertyChanging("TournamentId");
-                _TournamentId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("TournamentId");
-                OnTournamentIdChanged();
+                if (_TournamentId != value)
+                {
+                    OnTournamentIdChanging(value);
+                    ReportPropertyChanging("TournamentId");
+                    _TournamentId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("TournamentId");
+                    OnTournamentIdChanged();
+                }
             }
         }
         private global::System.Int32 _TournamentId;
@@ -2970,7 +3608,7 @@ namespace WKSADB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 DivisionId
         {
@@ -2980,11 +3618,14 @@ namespace WKSADB
             }
             set
             {
-                OnDivisionIdChanging(value);
-                ReportPropertyChanging("DivisionId");
-                _DivisionId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("DivisionId");
-                OnDivisionIdChanged();
+                if (_DivisionId != value)
+                {
+                    OnDivisionIdChanging(value);
+                    ReportPropertyChanging("DivisionId");
+                    _DivisionId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("DivisionId");
+                    OnDivisionIdChanged();
+                }
             }
         }
         private global::System.Int32 _DivisionId;
@@ -3042,28 +3683,6 @@ namespace WKSADB
         #endregion
     
         #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_TBL_COMPETITOR_EVENT_TBL_TOURNAMENT_EVENT", "CompetitorDivision")]
-        public EntityCollection<CompetitorDivision> CompetitorDivisions
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CompetitorDivision>("WKSAModel.FK_TBL_COMPETITOR_EVENT_TBL_TOURNAMENT_EVENT", "CompetitorDivision");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CompetitorDivision>("WKSAModel.FK_TBL_COMPETITOR_EVENT_TBL_TOURNAMENT_EVENT", "CompetitorDivision", value);
-                }
-            }
-        }
     
         /// <summary>
         /// No Metadata Documentation available.

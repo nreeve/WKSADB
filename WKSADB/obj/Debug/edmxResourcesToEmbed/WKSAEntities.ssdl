@@ -7,18 +7,32 @@
     <EntitySet Name="Country" EntityType="WKSAModel.Store.Country" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Division" EntityType="WKSAModel.Store.Division" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="DivisionType" EntityType="WKSAModel.Store.DivisionType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GrandChampion" EntityType="WKSAModel.Store.GrandChampion" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Rank" EntityType="WKSAModel.Store.Rank" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="School" EntityType="WKSAModel.Store.School" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Student" EntityType="WKSAModel.Store.Student" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Tournament" EntityType="WKSAModel.Store.Tournament" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="TournamentDivision" EntityType="WKSAModel.Store.TournamentDivision" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TournamentGrandChampion" EntityType="WKSAModel.Store.TournamentGrandChampion" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Venue" EntityType="WKSAModel.Store.Venue" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="FK_TBL_COMPETITOR_EVENT_TBL_COMPETITOR" Association="WKSAModel.Store.FK_TBL_COMPETITOR_EVENT_TBL_COMPETITOR">
+    <AssociationSet Name="FK_AgeGroup_AgeGroup" Association="WKSAModel.Store.FK_AgeGroup_AgeGroup">
+      <End Role="AgeGroup" EntitySet="AgeGroup" />
+      <End Role="AgeGroup1" EntitySet="AgeGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Competitor_GrandChampion" Association="WKSAModel.Store.FK_Competitor_GrandChampion">
+      <End Role="GrandChampion" EntitySet="GrandChampion" />
+      <End Role="Competitor" EntitySet="Competitor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Competitor_Rank" Association="WKSAModel.Store.FK_Competitor_Rank">
+      <End Role="Rank" EntitySet="Rank" />
+      <End Role="Competitor" EntitySet="Competitor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompetitorDivision_Competitor" Association="WKSAModel.Store.FK_CompetitorDivision_Competitor">
       <End Role="Competitor" EntitySet="Competitor" />
       <End Role="CompetitorDivision" EntitySet="CompetitorDivision" />
     </AssociationSet>
-    <AssociationSet Name="FK_TBL_COMPETITOR_EVENT_TBL_TOURNAMENT_EVENT" Association="WKSAModel.Store.FK_TBL_COMPETITOR_EVENT_TBL_TOURNAMENT_EVENT">
-      <End Role="TournamentDivision" EntitySet="TournamentDivision" />
+    <AssociationSet Name="FK_CompetitorDivision_Division" Association="WKSAModel.Store.FK_CompetitorDivision_Division">
+      <End Role="Division" EntitySet="Division" />
       <End Role="CompetitorDivision" EntitySet="CompetitorDivision" />
     </AssociationSet>
     <AssociationSet Name="FK_TBL_COMPETITOR_TBL_STUDENT" Association="WKSAModel.Store.FK_TBL_COMPETITOR_TBL_STUDENT">
@@ -40,6 +54,10 @@
     <AssociationSet Name="FK_TBL_EVENT_TBL_RANK" Association="WKSAModel.Store.FK_TBL_EVENT_TBL_RANK">
       <End Role="Rank" EntitySet="Rank" />
       <End Role="Division" EntitySet="Division" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_GRAND_CHAMP_TBL_RANK" Association="WKSAModel.Store.FK_TBL_GRAND_CHAMP_TBL_RANK">
+      <End Role="Rank" EntitySet="Rank" />
+      <End Role="GrandChampion" EntitySet="GrandChampion" />
     </AssociationSet>
     <AssociationSet Name="FK_TBL_SCHOOL_TBL_COUNTRY" Association="WKSAModel.Store.FK_TBL_SCHOOL_TBL_COUNTRY">
       <End Role="Country" EntitySet="Country" />
@@ -73,6 +91,14 @@
       <End Role="Venue" EntitySet="Venue" />
       <End Role="Tournament" EntitySet="Tournament" />
     </AssociationSet>
+    <AssociationSet Name="FK_TournamentGrandChampion_GrandChampion" Association="WKSAModel.Store.FK_TournamentGrandChampion_GrandChampion">
+      <End Role="GrandChampion" EntitySet="GrandChampion" />
+      <End Role="TournamentGrandChampion" EntitySet="TournamentGrandChampion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TournamentGrandChampion_Tournament" Association="WKSAModel.Store.FK_TournamentGrandChampion_Tournament">
+      <End Role="Tournament" EntitySet="Tournament" />
+      <End Role="TournamentGrandChampion" EntitySet="TournamentGrandChampion" />
+    </AssociationSet>
     <AssociationSet Name="FK_Venue_Country" Association="WKSAModel.Store.FK_Venue_Country">
       <End Role="Country" EntitySet="Country" />
       <End Role="Venue" EntitySet="Venue" />
@@ -87,6 +113,7 @@
     <Property Name="FromAge" Type="int" />
     <Property Name="ToAge" Type="int" />
     <Property Name="IsSparringGroup" Type="bit" Nullable="false" />
+    <Property Name="ParentAgeGroupId" Type="int" />
   </EntityType>
   <EntityType Name="Competitor">
     <Key>
@@ -96,15 +123,18 @@
     <Property Name="TournamentId" Type="int" Nullable="false" />
     <Property Name="StudentId" Type="int" Nullable="false" />
     <Property Name="Fee" Type="money" Nullable="false" />
+    <Property Name="RankId" Type="int" Nullable="false" />
+    <Property Name="Age" Type="int" Nullable="false" />
+    <Property Name="GrandChampionId" Type="int" />
   </EntityType>
   <EntityType Name="CompetitorDivision">
     <Key>
-      <PropertyRef Name="CompetitorDivisionId" />
+      <PropertyRef Name="CompetitorId" />
+      <PropertyRef Name="DivisionId" />
     </Key>
-    <Property Name="CompetitorDivisionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="CompetitorId" Type="int" Nullable="false" />
-    <Property Name="TournamentDivisionId" Type="int" Nullable="false" />
-    <Property Name="Result" Type="tinyint" Nullable="false" />
+    <Property Name="DivisionId" Type="int" Nullable="false" />
+    <Property Name="Result" Type="int" />
   </EntityType>
   <EntityType Name="Country">
     <Key>
@@ -132,6 +162,18 @@
     <Property Name="Description" Type="varchar" Nullable="false" MaxLength="255" />
     <Property Name="IsGrandChampionDivision" Type="bit" Nullable="false" />
   </EntityType>
+  <EntityType Name="GrandChampion">
+    <Key>
+      <PropertyRef Name="GrandChampionId" />
+    </Key>
+    <Property Name="GrandChampionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="RankId" Type="int" Nullable="false" />
+    <Property Name="FromAge" Type="int" />
+    <Property Name="ToAge" Type="int" />
+    <Property Name="Gender" Type="char" MaxLength="1" />
+    <Property Name="DivisionCount" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="Rank">
     <Key>
       <PropertyRef Name="RankId" />
@@ -149,6 +191,8 @@
     <Property Name="CountryId" Type="int" Nullable="false" />
     <Property Name="InstructorName" Type="nvarchar" Nullable="false" MaxLength="100" />
     <Property Name="InstructorId" Type="int" />
+    <Property Name="State" Type="char" MaxLength="2" />
+    <Property Name="Rank" Type="int" />
   </EntityType>
   <EntityType Name="Student">
     <Key>
@@ -184,13 +228,21 @@
   </EntityType>
   <EntityType Name="TournamentDivision">
     <Key>
-      <PropertyRef Name="TournamentEventId" />
+      <PropertyRef Name="TournamentId" />
+      <PropertyRef Name="DivisionId" />
     </Key>
-    <Property Name="TournamentEventId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="TournamentId" Type="int" Nullable="false" />
     <Property Name="DivisionId" Type="int" Nullable="false" />
     <Property Name="IsCompleted" Type="bit" Nullable="false" />
     <Property Name="MedalsReceived" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TournamentGrandChampion">
+    <Key>
+      <PropertyRef Name="TournamentId" />
+      <PropertyRef Name="GrandChampionId" />
+    </Key>
+    <Property Name="TournamentId" Type="int" Nullable="false" />
+    <Property Name="GrandChampionId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Venue">
     <Key>
@@ -206,7 +258,43 @@
     <Property Name="Postcode" Type="varchar" MaxLength="20" />
     <Property Name="CountryId" Type="int" Nullable="false" />
   </EntityType>
-  <Association Name="FK_TBL_COMPETITOR_EVENT_TBL_COMPETITOR">
+  <Association Name="FK_AgeGroup_AgeGroup">
+    <End Role="AgeGroup" Type="WKSAModel.Store.AgeGroup" Multiplicity="0..1" />
+    <End Role="AgeGroup1" Type="WKSAModel.Store.AgeGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AgeGroup">
+        <PropertyRef Name="AgeGroupId" />
+      </Principal>
+      <Dependent Role="AgeGroup1">
+        <PropertyRef Name="ParentAgeGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Competitor_GrandChampion">
+    <End Role="GrandChampion" Type="WKSAModel.Store.GrandChampion" Multiplicity="0..1" />
+    <End Role="Competitor" Type="WKSAModel.Store.Competitor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GrandChampion">
+        <PropertyRef Name="GrandChampionId" />
+      </Principal>
+      <Dependent Role="Competitor">
+        <PropertyRef Name="GrandChampionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Competitor_Rank">
+    <End Role="Rank" Type="WKSAModel.Store.Rank" Multiplicity="1" />
+    <End Role="Competitor" Type="WKSAModel.Store.Competitor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rank">
+        <PropertyRef Name="RankId" />
+      </Principal>
+      <Dependent Role="Competitor">
+        <PropertyRef Name="RankId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompetitorDivision_Competitor">
     <End Role="Competitor" Type="WKSAModel.Store.Competitor" Multiplicity="1" />
     <End Role="CompetitorDivision" Type="WKSAModel.Store.CompetitorDivision" Multiplicity="*" />
     <ReferentialConstraint>
@@ -218,15 +306,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_TBL_COMPETITOR_EVENT_TBL_TOURNAMENT_EVENT">
-    <End Role="TournamentDivision" Type="WKSAModel.Store.TournamentDivision" Multiplicity="1" />
+  <Association Name="FK_CompetitorDivision_Division">
+    <End Role="Division" Type="WKSAModel.Store.Division" Multiplicity="1" />
     <End Role="CompetitorDivision" Type="WKSAModel.Store.CompetitorDivision" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="TournamentDivision">
-        <PropertyRef Name="TournamentEventId" />
+      <Principal Role="Division">
+        <PropertyRef Name="DivisionId" />
       </Principal>
       <Dependent Role="CompetitorDivision">
-        <PropertyRef Name="TournamentDivisionId" />
+        <PropertyRef Name="DivisionId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -286,6 +374,18 @@
         <PropertyRef Name="RankId" />
       </Principal>
       <Dependent Role="Division">
+        <PropertyRef Name="RankId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_GRAND_CHAMP_TBL_RANK">
+    <End Role="Rank" Type="WKSAModel.Store.Rank" Multiplicity="1" />
+    <End Role="GrandChampion" Type="WKSAModel.Store.GrandChampion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rank">
+        <PropertyRef Name="RankId" />
+      </Principal>
+      <Dependent Role="GrandChampion">
         <PropertyRef Name="RankId" />
       </Dependent>
     </ReferentialConstraint>
@@ -383,6 +483,30 @@
       </Principal>
       <Dependent Role="Tournament">
         <PropertyRef Name="VenueId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TournamentGrandChampion_GrandChampion">
+    <End Role="GrandChampion" Type="WKSAModel.Store.GrandChampion" Multiplicity="1" />
+    <End Role="TournamentGrandChampion" Type="WKSAModel.Store.TournamentGrandChampion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GrandChampion">
+        <PropertyRef Name="GrandChampionId" />
+      </Principal>
+      <Dependent Role="TournamentGrandChampion">
+        <PropertyRef Name="GrandChampionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TournamentGrandChampion_Tournament">
+    <End Role="Tournament" Type="WKSAModel.Store.Tournament" Multiplicity="1" />
+    <End Role="TournamentGrandChampion" Type="WKSAModel.Store.TournamentGrandChampion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tournament">
+        <PropertyRef Name="TournamentId" />
+      </Principal>
+      <Dependent Role="TournamentGrandChampion">
+        <PropertyRef Name="TournamentId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
