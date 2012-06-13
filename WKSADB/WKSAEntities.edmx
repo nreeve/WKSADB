@@ -8,11 +8,16 @@
         <EntityContainer Name="WKSAModelStoreContainer">
           <EntitySet Name="AgeGroup" EntityType="WKSAModel.Store.AgeGroup" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Competitor" EntityType="WKSAModel.Store.Competitor" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CompetitorDetails" EntityType="WKSAModel.Store.CompetitorDetails" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="CompetitorDivision" EntityType="WKSAModel.Store.CompetitorDivision" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CompetitorOlympicDivisionHyungBup" EntityType="WKSAModel.Store.CompetitorOlympicDivisionHyungBup" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CompetitorOlympicDivisionStep" EntityType="WKSAModel.Store.CompetitorOlympicDivisionStep" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Country" EntityType="WKSAModel.Store.Country" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Division" EntityType="WKSAModel.Store.Division" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="DivisionType" EntityType="WKSAModel.Store.DivisionType" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="GrandChampion" EntityType="WKSAModel.Store.GrandChampion" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="HyungBup" EntityType="WKSAModel.Store.HyungBup" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OlympicDivisionStep" EntityType="WKSAModel.Store.OlympicDivisionStep" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Rank" EntityType="WKSAModel.Store.Rank" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="School" EntityType="WKSAModel.Store.School" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Student" EntityType="WKSAModel.Store.Student" store:Type="Tables" Schema="dbo" />
@@ -32,6 +37,14 @@
             <End Role="Rank" EntitySet="Rank" />
             <End Role="Competitor" EntitySet="Competitor" />
           </AssociationSet>
+          <AssociationSet Name="FK_CompetitorDetails_Competitor" Association="WKSAModel.Store.FK_CompetitorDetails_Competitor">
+            <End Role="Competitor" EntitySet="Competitor" />
+            <End Role="CompetitorDetails" EntitySet="CompetitorDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetitorDetails_Country" Association="WKSAModel.Store.FK_CompetitorDetails_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="CompetitorDetails" EntitySet="CompetitorDetails" />
+          </AssociationSet>
           <AssociationSet Name="FK_CompetitorDivision_Competitor" Association="WKSAModel.Store.FK_CompetitorDivision_Competitor">
             <End Role="Competitor" EntitySet="Competitor" />
             <End Role="CompetitorDivision" EntitySet="CompetitorDivision" />
@@ -39,6 +52,30 @@
           <AssociationSet Name="FK_CompetitorDivision_Division" Association="WKSAModel.Store.FK_CompetitorDivision_Division">
             <End Role="Division" EntitySet="Division" />
             <End Role="CompetitorDivision" EntitySet="CompetitorDivision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetitorOlympicDivisionHyungBup_Competitor" Association="WKSAModel.Store.FK_CompetitorOlympicDivisionHyungBup_Competitor">
+            <End Role="Competitor" EntitySet="Competitor" />
+            <End Role="CompetitorOlympicDivisionHyungBup" EntitySet="CompetitorOlympicDivisionHyungBup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetitorOlympicDivisionHyungBup_Division" Association="WKSAModel.Store.FK_CompetitorOlympicDivisionHyungBup_Division">
+            <End Role="Division" EntitySet="Division" />
+            <End Role="CompetitorOlympicDivisionHyungBup" EntitySet="CompetitorOlympicDivisionHyungBup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetitorOlympicDivisionHyungBup_HyungBup" Association="WKSAModel.Store.FK_CompetitorOlympicDivisionHyungBup_HyungBup">
+            <End Role="HyungBup" EntitySet="HyungBup" />
+            <End Role="CompetitorOlympicDivisionHyungBup" EntitySet="CompetitorOlympicDivisionHyungBup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetitorOlympicDivisionStep_Competitor" Association="WKSAModel.Store.FK_CompetitorOlympicDivisionStep_Competitor">
+            <End Role="Competitor" EntitySet="Competitor" />
+            <End Role="CompetitorOlympicDivisionStep" EntitySet="CompetitorOlympicDivisionStep" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetitorOlympicDivisionStep_OlympicDivisionStep" Association="WKSAModel.Store.FK_CompetitorOlympicDivisionStep_OlympicDivisionStep">
+            <End Role="OlympicDivisionStep" EntitySet="OlympicDivisionStep" />
+            <End Role="CompetitorOlympicDivisionStep" EntitySet="CompetitorOlympicDivisionStep" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OlympicDivisionStep_Division" Association="WKSAModel.Store.FK_OlympicDivisionStep_Division">
+            <End Role="Division" EntitySet="Division" />
+            <End Role="OlympicDivisionStep" EntitySet="OlympicDivisionStep" />
           </AssociationSet>
           <AssociationSet Name="FK_TBL_COMPETITOR_TBL_STUDENT" Association="WKSAModel.Store.FK_TBL_COMPETITOR_TBL_STUDENT">
             <End Role="Student" EntitySet="Student" />
@@ -131,6 +168,21 @@
           <Property Name="RankId" Type="int" Nullable="false" />
           <Property Name="Age" Type="int" Nullable="false" />
           <Property Name="GrandChampionId" Type="int" />
+          <Property Name="ShareContactDetails" Type="bit" Nullable="false" />
+          <Property Name="IsSignedIn" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CompetitorDetails">
+          <Key>
+            <PropertyRef Name="CompetitorId" />
+          </Key>
+          <Property Name="CompetitorId" Type="int" Nullable="false" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address4" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address5" Type="nvarchar" MaxLength="50" />
+          <Property Name="Postcode" Type="varchar" MaxLength="20" />
+          <Property Name="CountryId" Type="int" />
         </EntityType>
         <EntityType Name="CompetitorDivision">
           <Key>
@@ -139,7 +191,47 @@
           </Key>
           <Property Name="CompetitorId" Type="int" Nullable="false" />
           <Property Name="DivisionId" Type="int" Nullable="false" />
+          <Property Name="Judge1" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="Judge2" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="Judge3" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="Judge4" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="Judge5" Type="decimal" Precision="5" Scale="2" />
           <Property Name="Result" Type="int" />
+          <Property Name="TechnicalScore" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="HyungBupScore" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="TotalScore" Type="decimal" Precision="5" Scale="2" />
+        </EntityType>
+        <EntityType Name="CompetitorOlympicDivisionHyungBup">
+          <Key>
+            <PropertyRef Name="CompetitorId" />
+            <PropertyRef Name="DivisionId" />
+            <PropertyRef Name="HyungBupId" />
+          </Key>
+          <Property Name="CompetitorId" Type="int" Nullable="false" />
+          <Property Name="DivisionId" Type="int" Nullable="false" />
+          <Property Name="HyungBupId" Type="int" Nullable="false" />
+          <Property Name="Judge1" Type="decimal" Nullable="false" Precision="5" Scale="2" />
+          <Property Name="Judge2" Type="decimal" Nullable="false" Precision="5" Scale="2" />
+          <Property Name="Judge3" Type="decimal" Nullable="false" Precision="5" Scale="2" />
+          <Property Name="Judge4" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="Judge5" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="Total" Type="decimal" Nullable="false" Precision="5" Scale="2" />
+        </EntityType>
+        <EntityType Name="CompetitorOlympicDivisionStep">
+          <Key>
+            <PropertyRef Name="CompetitorId" />
+            <PropertyRef Name="DivisionId" />
+            <PropertyRef Name="DivisionStepId" />
+          </Key>
+          <Property Name="CompetitorId" Type="int" Nullable="false" />
+          <Property Name="DivisionId" Type="int" Nullable="false" />
+          <Property Name="DivisionStepId" Type="int" Nullable="false" />
+          <Property Name="Judge1" Type="int" Nullable="false" />
+          <Property Name="Judge2" Type="int" Nullable="false" />
+          <Property Name="Judge3" Type="int" Nullable="false" />
+          <Property Name="Judge4" Type="int" />
+          <Property Name="Judge5" Type="int" />
+          <Property Name="Total" Type="decimal" Nullable="false" Precision="5" Scale="2" />
         </EntityType>
         <EntityType Name="Country">
           <Key>
@@ -158,6 +250,7 @@
           <Property Name="RankId" Type="int" Nullable="false" />
           <Property Name="AgeGroupId" Type="int" Nullable="false" />
           <Property Name="Gender" Type="char" MaxLength="1" />
+          <Property Name="IsOlympicDivision" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="DivisionType">
           <Key>
@@ -178,6 +271,23 @@
           <Property Name="ToAge" Type="int" />
           <Property Name="Gender" Type="char" MaxLength="1" />
           <Property Name="DivisionCount" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HyungBup">
+          <Key>
+            <PropertyRef Name="HyungBupId" />
+          </Key>
+          <Property Name="HyungBupId" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="OlympicDivisionStep">
+          <Key>
+            <PropertyRef Name="DivisionId" />
+            <PropertyRef Name="DivisionStepId" />
+          </Key>
+          <Property Name="DivisionId" Type="int" Nullable="false" />
+          <Property Name="DivisionStepId" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="BaseValue" Type="decimal" Nullable="false" Precision="5" Scale="2" />
         </EntityType>
         <EntityType Name="Rank">
           <Key>
@@ -240,6 +350,11 @@
           <Property Name="DivisionId" Type="int" Nullable="false" />
           <Property Name="IsCompleted" Type="bit" Nullable="false" />
           <Property Name="MedalsReceived" Type="bit" Nullable="false" />
+          <Property Name="Judge1" Type="varchar" MaxLength="50" />
+          <Property Name="Judge2" Type="varchar" MaxLength="50" />
+          <Property Name="Judge3" Type="varchar" MaxLength="50" />
+          <Property Name="Judge4" Type="varchar" MaxLength="50" />
+          <Property Name="Judge5" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="TournamentGrandChampion">
           <Key>
@@ -299,6 +414,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_CompetitorDetails_Competitor">
+          <End Role="Competitor" Type="WKSAModel.Store.Competitor" Multiplicity="1" />
+          <End Role="CompetitorDetails" Type="WKSAModel.Store.CompetitorDetails" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Competitor">
+              <PropertyRef Name="CompetitorId" />
+            </Principal>
+            <Dependent Role="CompetitorDetails">
+              <PropertyRef Name="CompetitorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetitorDetails_Country">
+          <End Role="Country" Type="WKSAModel.Store.Country" Multiplicity="0..1" />
+          <End Role="CompetitorDetails" Type="WKSAModel.Store.CompetitorDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="CompetitorDetails">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_CompetitorDivision_Competitor">
           <End Role="Competitor" Type="WKSAModel.Store.Competitor" Multiplicity="1" />
           <End Role="CompetitorDivision" Type="WKSAModel.Store.CompetitorDivision" Multiplicity="*" />
@@ -319,6 +458,80 @@
               <PropertyRef Name="DivisionId" />
             </Principal>
             <Dependent Role="CompetitorDivision">
+              <PropertyRef Name="DivisionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetitorOlympicDivisionHyungBup_Competitor">
+          <End Role="Competitor" Type="WKSAModel.Store.Competitor" Multiplicity="1" />
+          <End Role="CompetitorOlympicDivisionHyungBup" Type="WKSAModel.Store.CompetitorOlympicDivisionHyungBup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competitor">
+              <PropertyRef Name="CompetitorId" />
+            </Principal>
+            <Dependent Role="CompetitorOlympicDivisionHyungBup">
+              <PropertyRef Name="CompetitorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetitorOlympicDivisionHyungBup_Division">
+          <End Role="Division" Type="WKSAModel.Store.Division" Multiplicity="1" />
+          <End Role="CompetitorOlympicDivisionHyungBup" Type="WKSAModel.Store.CompetitorOlympicDivisionHyungBup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Division">
+              <PropertyRef Name="DivisionId" />
+            </Principal>
+            <Dependent Role="CompetitorOlympicDivisionHyungBup">
+              <PropertyRef Name="DivisionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetitorOlympicDivisionHyungBup_HyungBup">
+          <End Role="HyungBup" Type="WKSAModel.Store.HyungBup" Multiplicity="1" />
+          <End Role="CompetitorOlympicDivisionHyungBup" Type="WKSAModel.Store.CompetitorOlympicDivisionHyungBup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HyungBup">
+              <PropertyRef Name="HyungBupId" />
+            </Principal>
+            <Dependent Role="CompetitorOlympicDivisionHyungBup">
+              <PropertyRef Name="HyungBupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetitorOlympicDivisionStep_Competitor">
+          <End Role="Competitor" Type="WKSAModel.Store.Competitor" Multiplicity="1" />
+          <End Role="CompetitorOlympicDivisionStep" Type="WKSAModel.Store.CompetitorOlympicDivisionStep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competitor">
+              <PropertyRef Name="CompetitorId" />
+            </Principal>
+            <Dependent Role="CompetitorOlympicDivisionStep">
+              <PropertyRef Name="CompetitorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetitorOlympicDivisionStep_OlympicDivisionStep">
+          <End Role="OlympicDivisionStep" Type="WKSAModel.Store.OlympicDivisionStep" Multiplicity="1" />
+          <End Role="CompetitorOlympicDivisionStep" Type="WKSAModel.Store.CompetitorOlympicDivisionStep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OlympicDivisionStep">
+              <PropertyRef Name="DivisionId" />
+              <PropertyRef Name="DivisionStepId" />
+            </Principal>
+            <Dependent Role="CompetitorOlympicDivisionStep">
+              <PropertyRef Name="DivisionId" />
+              <PropertyRef Name="DivisionStepId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OlympicDivisionStep_Division">
+          <End Role="Division" Type="WKSAModel.Store.Division" Multiplicity="1" />
+          <End Role="OlympicDivisionStep" Type="WKSAModel.Store.OlympicDivisionStep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Division">
+              <PropertyRef Name="DivisionId" />
+            </Principal>
+            <Dependent Role="OlympicDivisionStep">
               <PropertyRef Name="DivisionId" />
             </Dependent>
           </ReferentialConstraint>
@@ -527,6 +740,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="DeleteCompetitorOlympicSteps" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CompetitorId" Type="int" Mode="In" />
+          <Parameter Name="DivisionId" Type="int" Mode="In" />
+        </Function>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -629,6 +846,47 @@
             <End Role="GrandChampion" EntitySet="GrandChampions" />
             <End Role="Tournament" EntitySet="Tournaments" />
           </AssociationSet>
+          <EntitySet Name="CompetitorDetails" EntityType="WKSAModel.CompetitorDetail" />
+          <AssociationSet Name="FK_CompetitorDetails_Competitor" Association="WKSAModel.FK_CompetitorDetails_Competitor">
+            <End Role="Competitor" EntitySet="Competitors" />
+            <End Role="CompetitorDetail" EntitySet="CompetitorDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetitorDetails_Country" Association="WKSAModel.FK_CompetitorDetails_Country">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="CompetitorDetail" EntitySet="CompetitorDetails" />
+          </AssociationSet>
+          <EntitySet Name="HyungBups" EntityType="WKSAModel.HyungBup" />
+          <EntitySet Name="CompetitorOlympicDivisionHyungBups" EntityType="WKSAModel.CompetitorOlympicDivisionHyungBup" />
+          <AssociationSet Name="FK_CompetitorOlympicDivisionHyungBup_Competitor" Association="WKSAModel.FK_CompetitorOlympicDivisionHyungBup_Competitor">
+            <End Role="Competitor" EntitySet="Competitors" />
+            <End Role="CompetitorOlympicDivisionHyungBup" EntitySet="CompetitorOlympicDivisionHyungBups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetitorOlympicDivisionHyungBup_Division" Association="WKSAModel.FK_CompetitorOlympicDivisionHyungBup_Division">
+            <End Role="Division" EntitySet="Divisions" />
+            <End Role="CompetitorOlympicDivisionHyungBup" EntitySet="CompetitorOlympicDivisionHyungBups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetitorOlympicDivisionHyungBup_HyungBup" Association="WKSAModel.FK_CompetitorOlympicDivisionHyungBup_HyungBup">
+            <End Role="HyungBup" EntitySet="HyungBups" />
+            <End Role="CompetitorOlympicDivisionHyungBup" EntitySet="CompetitorOlympicDivisionHyungBups" />
+          </AssociationSet>
+          <EntitySet Name="CompetitorOlympicDivisionSteps" EntityType="WKSAModel.CompetitorOlympicDivisionStep" />
+          <AssociationSet Name="FK_CompetitorOlympicDivisionStep_Competitor" Association="WKSAModel.FK_CompetitorOlympicDivisionStep_Competitor">
+            <End Role="Competitor" EntitySet="Competitors" />
+            <End Role="CompetitorOlympicDivisionStep" EntitySet="CompetitorOlympicDivisionSteps" />
+          </AssociationSet>
+          <EntitySet Name="OlympicDivisionSteps" EntityType="WKSAModel.OlympicDivisionStep" />
+          <AssociationSet Name="FK_CompetitorOlympicDivisionStep_OlympicDivisionStep" Association="WKSAModel.FK_CompetitorOlympicDivisionStep_OlympicDivisionStep">
+            <End Role="OlympicDivisionStep" EntitySet="OlympicDivisionSteps" />
+            <End Role="CompetitorOlympicDivisionStep" EntitySet="CompetitorOlympicDivisionSteps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OlympicDivisionStep_Division" Association="WKSAModel.FK_OlympicDivisionStep_Division">
+            <End Role="Division" EntitySet="Divisions" />
+            <End Role="OlympicDivisionStep" EntitySet="OlympicDivisionSteps" />
+          </AssociationSet>
+          <FunctionImport Name="DeleteCompetitorOlympicSteps">
+            <Parameter Name="CompetitorId" Mode="In" Type="Int32" />
+            <Parameter Name="DivisionId" Mode="In" Type="Int32" />
+          </FunctionImport>
           </EntityContainer>
         <EntityType Name="Country">
           <Key>
@@ -639,6 +897,7 @@
           <NavigationProperty Name="Venues" Relationship="WKSAModel.FK_Venue_Country" FromRole="Country" ToRole="Venue" />
           <NavigationProperty Name="Schools" Relationship="WKSAModel.FK_TBL_SCHOOL_TBL_COUNTRY" FromRole="Country" ToRole="School" />
           <NavigationProperty Name="Students" Relationship="WKSAModel.FK_TBL_STUDENT_TBL_COUNTRY" FromRole="Country" ToRole="Student" />
+          <NavigationProperty Name="CompetitorDetails" Relationship="WKSAModel.FK_CompetitorDetails_Country" FromRole="Country" ToRole="CompetitorDetail" />
         </EntityType>
         <EntityType Name="Venue">
           <Key>
@@ -717,6 +976,9 @@
           <NavigationProperty Name="Rank" Relationship="WKSAModel.FK_TBL_EVENT_TBL_RANK" FromRole="Division" ToRole="Rank" />
           <NavigationProperty Name="TournamentDivisions" Relationship="WKSAModel.FK_TBL_TOURNAMENT_EVENT_TBL_EVENT" FromRole="Division" ToRole="TournamentDivision" />
           <NavigationProperty Name="CompetitorDivisions" Relationship="WKSAModel.FK_CompetitorDivision_Division" FromRole="Division" ToRole="CompetitorDivision" />
+          <Property Type="Boolean" Name="IsOlympicDivision" Nullable="false" />
+          <NavigationProperty Name="CompetitorOlympicDivisionHyungBups" Relationship="WKSAModel.FK_CompetitorOlympicDivisionHyungBup_Division" FromRole="Division" ToRole="CompetitorOlympicDivisionHyungBup" />
+          <NavigationProperty Name="OlympicDivisionSteps" Relationship="WKSAModel.FK_OlympicDivisionStep_Division" FromRole="Division" ToRole="OlympicDivisionStep" />
         </EntityType>
         <Association Name="FK_TBL_EVENT_TBL_AGE">
           <End Type="WKSAModel.AgeGroup" Role="AgeGroup" Multiplicity="1" />
@@ -819,6 +1081,11 @@
           <Property Type="Boolean" Name="MedalsReceived" Nullable="false" />
           <NavigationProperty Name="Division" Relationship="WKSAModel.FK_TBL_TOURNAMENT_EVENT_TBL_EVENT" FromRole="TournamentDivision" ToRole="Division" />
           <NavigationProperty Name="Tournament" Relationship="WKSAModel.FK_TBL_TOURNAMENT_EVENT_TBL_TOURNAMENT" FromRole="TournamentDivision" ToRole="Tournament" />
+          <Property Type="String" Name="Judge1" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Judge2" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Judge3" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Judge4" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Judge5" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_TBL_TOURNAMENT_EVENT_TBL_EVENT">
           <End Type="WKSAModel.Division" Role="Division" Multiplicity="1" />
@@ -929,6 +1196,14 @@
           <Property Type="Int32" Name="Result" />
           <NavigationProperty Name="Division" Relationship="WKSAModel.FK_CompetitorDivision_Division" FromRole="CompetitorDivision" ToRole="Division" />
           <NavigationProperty Name="Competitor" Relationship="WKSAModel.FK_CompetitorDivision_Competitor" FromRole="CompetitorDivision" ToRole="Competitor" />
+          <Property Type="Decimal" Name="Judge1" Precision="5" Scale="0" />
+          <Property Type="Decimal" Name="Judge2" Precision="5" Scale="0" />
+          <Property Type="Decimal" Name="Judge3" Precision="5" Scale="0" />
+          <Property Type="Decimal" Name="Judge4" Precision="5" Scale="0" />
+          <Property Type="Decimal" Name="Judge5" Precision="5" Scale="0" />
+          <Property Type="Decimal" Name="TechnicalScore" Precision="5" Scale="2" />
+          <Property Type="Decimal" Name="HyungBupScore" Precision="5" Scale="2" />
+          <Property Type="Decimal" Name="TotalScore" Precision="5" Scale="2" />
         </EntityType>
         <Association Name="FK_CompetitorDivision_Division">
           <End Type="WKSAModel.Division" Role="Division" Multiplicity="1" />
@@ -970,6 +1245,11 @@
           <NavigationProperty Name="Student" Relationship="WKSAModel.FK_TBL_COMPETITOR_TBL_STUDENT" FromRole="Competitor" ToRole="Student" />
           <NavigationProperty Name="Tournament" Relationship="WKSAModel.FK_TBL_COMPETITOR_TBL_TOURNAMENT" FromRole="Competitor" ToRole="Tournament" />
           <NavigationProperty Name="GrandChampion" Relationship="WKSAModel.FK_Competitor_GrandChampion" FromRole="Competitor" ToRole="GrandChampion" />
+          <Property Type="Boolean" Name="ShareContactDetails" Nullable="false" />
+          <NavigationProperty Name="CompetitorDetail" Relationship="WKSAModel.FK_CompetitorDetails_Competitor" FromRole="Competitor" ToRole="CompetitorDetail" />
+          <Property Type="Boolean" Name="IsSignedIn" Nullable="false" />
+          <NavigationProperty Name="CompetitorOlympicDivisionHyungBups" Relationship="WKSAModel.FK_CompetitorOlympicDivisionHyungBup_Competitor" FromRole="Competitor" ToRole="CompetitorOlympicDivisionHyungBup" />
+          <NavigationProperty Name="CompetitorOlympicDivisionSteps" Relationship="WKSAModel.FK_CompetitorOlympicDivisionStep_Competitor" FromRole="Competitor" ToRole="CompetitorOlympicDivisionStep" />
         </EntityType>
         <Association Name="FK_Competitor_Rank">
           <End Type="WKSAModel.Rank" Role="Rank" Multiplicity="1" />
@@ -1062,6 +1342,176 @@
           <End Type="WKSAModel.GrandChampion" Role="GrandChampion" Multiplicity="*" />
           <End Type="WKSAModel.Tournament" Role="Tournament" Multiplicity="*" />
         </Association>
+        <EntityType Name="CompetitorDetail">
+          <Key>
+            <PropertyRef Name="CompetitorId" />
+          </Key>
+          <Property Type="Int32" Name="CompetitorId" Nullable="false" />
+          <Property Type="String" Name="Address1" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address3" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address4" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address5" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Postcode" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="CountryId" />
+          <NavigationProperty Name="Competitor" Relationship="WKSAModel.FK_CompetitorDetails_Competitor" FromRole="CompetitorDetail" ToRole="Competitor" />
+          <NavigationProperty Name="Country" Relationship="WKSAModel.FK_CompetitorDetails_Country" FromRole="CompetitorDetail" ToRole="Country" />
+        </EntityType>
+        <Association Name="FK_CompetitorDetails_Competitor">
+          <End Type="WKSAModel.Competitor" Role="Competitor" Multiplicity="1" />
+          <End Type="WKSAModel.CompetitorDetail" Role="CompetitorDetail" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Competitor">
+              <PropertyRef Name="CompetitorId" />
+            </Principal>
+            <Dependent Role="CompetitorDetail">
+              <PropertyRef Name="CompetitorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetitorDetails_Country">
+          <End Type="WKSAModel.Country" Role="Country" Multiplicity="0..1" />
+          <End Type="WKSAModel.CompetitorDetail" Role="CompetitorDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="CompetitorDetail">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="HyungBup">
+          <Key>
+            <PropertyRef Name="HyungBupId" />
+          </Key>
+          <Property Type="Int32" Name="HyungBupId" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CompetitorOlympicDivisionHyungBups" Relationship="WKSAModel.FK_CompetitorOlympicDivisionHyungBup_HyungBup" FromRole="HyungBup" ToRole="CompetitorOlympicDivisionHyungBup" />
+        </EntityType>
+        <EntityType Name="CompetitorOlympicDivisionHyungBup">
+          <Key>
+            <PropertyRef Name="CompetitorId" />
+            <PropertyRef Name="DivisionId" />
+            <PropertyRef Name="HyungBupId" />
+          </Key>
+          <Property Type="Int32" Name="CompetitorId" Nullable="false" />
+          <Property Type="Int32" Name="DivisionId" Nullable="false" />
+          <Property Type="Int32" Name="HyungBupId" Nullable="false" />
+          <Property Type="Decimal" Name="Judge1" Nullable="false" Precision="5" Scale="2" />
+          <Property Type="Decimal" Name="Judge2" Nullable="false" Precision="5" Scale="2" />
+          <Property Type="Decimal" Name="Judge3" Nullable="false" Precision="5" Scale="2" />
+          <Property Type="Decimal" Name="Judge4" Precision="5" Scale="2" />
+          <Property Type="Decimal" Name="Judge5" Precision="5" Scale="2" />
+          <Property Type="Decimal" Name="Total" Nullable="false" Precision="5" Scale="2" />
+          <NavigationProperty Name="Competitor" Relationship="WKSAModel.FK_CompetitorOlympicDivisionHyungBup_Competitor" FromRole="CompetitorOlympicDivisionHyungBup" ToRole="Competitor" />
+          <NavigationProperty Name="Division" Relationship="WKSAModel.FK_CompetitorOlympicDivisionHyungBup_Division" FromRole="CompetitorOlympicDivisionHyungBup" ToRole="Division" />
+          <NavigationProperty Name="HyungBup" Relationship="WKSAModel.FK_CompetitorOlympicDivisionHyungBup_HyungBup" FromRole="CompetitorOlympicDivisionHyungBup" ToRole="HyungBup" />
+        </EntityType>
+        <Association Name="FK_CompetitorOlympicDivisionHyungBup_Competitor">
+          <End Type="WKSAModel.Competitor" Role="Competitor" Multiplicity="1" />
+          <End Type="WKSAModel.CompetitorOlympicDivisionHyungBup" Role="CompetitorOlympicDivisionHyungBup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competitor">
+              <PropertyRef Name="CompetitorId" />
+            </Principal>
+            <Dependent Role="CompetitorOlympicDivisionHyungBup">
+              <PropertyRef Name="CompetitorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetitorOlympicDivisionHyungBup_Division">
+          <End Type="WKSAModel.Division" Role="Division" Multiplicity="1" />
+          <End Type="WKSAModel.CompetitorOlympicDivisionHyungBup" Role="CompetitorOlympicDivisionHyungBup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Division">
+              <PropertyRef Name="DivisionId" />
+            </Principal>
+            <Dependent Role="CompetitorOlympicDivisionHyungBup">
+              <PropertyRef Name="DivisionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetitorOlympicDivisionHyungBup_HyungBup">
+          <End Type="WKSAModel.HyungBup" Role="HyungBup" Multiplicity="1" />
+          <End Type="WKSAModel.CompetitorOlympicDivisionHyungBup" Role="CompetitorOlympicDivisionHyungBup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HyungBup">
+              <PropertyRef Name="HyungBupId" />
+            </Principal>
+            <Dependent Role="CompetitorOlympicDivisionHyungBup">
+              <PropertyRef Name="HyungBupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CompetitorOlympicDivisionStep">
+          <Key>
+            <PropertyRef Name="CompetitorId" />
+            <PropertyRef Name="DivisionId" />
+            <PropertyRef Name="DivisionStepId" />
+          </Key>
+          <Property Type="Int32" Name="CompetitorId" Nullable="false" />
+          <Property Type="Int32" Name="DivisionId" Nullable="false" />
+          <Property Type="Int32" Name="DivisionStepId" Nullable="false" />
+          <Property Type="Int32" Name="Judge1" Nullable="false" />
+          <Property Type="Int32" Name="Judge2" Nullable="false" />
+          <Property Type="Int32" Name="Judge3" Nullable="false" />
+          <Property Type="Int32" Name="Judge4" />
+          <Property Type="Int32" Name="Judge5" />
+          <Property Type="Decimal" Name="Total" Nullable="false" Precision="5" Scale="2" />
+          <NavigationProperty Name="Competitor" Relationship="WKSAModel.FK_CompetitorOlympicDivisionStep_Competitor" FromRole="CompetitorOlympicDivisionStep" ToRole="Competitor" />
+          <NavigationProperty Name="OlympicDivisionStep" Relationship="WKSAModel.FK_CompetitorOlympicDivisionStep_OlympicDivisionStep" FromRole="CompetitorOlympicDivisionStep" ToRole="OlympicDivisionStep" />
+        </EntityType>
+        <Association Name="FK_CompetitorOlympicDivisionStep_Competitor">
+          <End Type="WKSAModel.Competitor" Role="Competitor" Multiplicity="1" />
+          <End Type="WKSAModel.CompetitorOlympicDivisionStep" Role="CompetitorOlympicDivisionStep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competitor">
+              <PropertyRef Name="CompetitorId" />
+            </Principal>
+            <Dependent Role="CompetitorOlympicDivisionStep">
+              <PropertyRef Name="CompetitorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="OlympicDivisionStep">
+          <Key>
+            <PropertyRef Name="DivisionId" />
+            <PropertyRef Name="DivisionStepId" />
+          </Key>
+          <Property Type="Int32" Name="DivisionId" Nullable="false" />
+          <Property Type="Int32" Name="DivisionStepId" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="BaseValue" Nullable="false" Precision="5" Scale="2" />
+          <NavigationProperty Name="CompetitorOlympicDivisionSteps" Relationship="WKSAModel.FK_CompetitorOlympicDivisionStep_OlympicDivisionStep" FromRole="OlympicDivisionStep" ToRole="CompetitorOlympicDivisionStep" />
+          <NavigationProperty Name="Division" Relationship="WKSAModel.FK_OlympicDivisionStep_Division" FromRole="OlympicDivisionStep" ToRole="Division" />
+        </EntityType>
+        <Association Name="FK_CompetitorOlympicDivisionStep_OlympicDivisionStep">
+          <End Type="WKSAModel.OlympicDivisionStep" Role="OlympicDivisionStep" Multiplicity="1" />
+          <End Type="WKSAModel.CompetitorOlympicDivisionStep" Role="CompetitorOlympicDivisionStep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OlympicDivisionStep">
+              <PropertyRef Name="DivisionId" />
+              <PropertyRef Name="DivisionStepId" />
+            </Principal>
+            <Dependent Role="CompetitorOlympicDivisionStep">
+              <PropertyRef Name="DivisionId" />
+              <PropertyRef Name="DivisionStepId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OlympicDivisionStep_Division">
+          <End Type="WKSAModel.Division" Role="Division" Multiplicity="1" />
+          <End Type="WKSAModel.OlympicDivisionStep" Role="OlympicDivisionStep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Division">
+              <PropertyRef Name="DivisionId" />
+            </Principal>
+            <Dependent Role="OlympicDivisionStep">
+              <PropertyRef Name="DivisionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1115,6 +1565,7 @@
           <EntitySetMapping Name="Divisions">
             <EntityTypeMapping TypeName="WKSAModel.Division">
               <MappingFragment StoreEntitySet="Division">
+                <ScalarProperty Name="IsOlympicDivision" ColumnName="IsOlympicDivision" />
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="AgeGroupId" ColumnName="AgeGroupId" />
                 <ScalarProperty Name="RankId" ColumnName="RankId" />
@@ -1152,6 +1603,11 @@
           <EntitySetMapping Name="TournamentDivisions">
             <EntityTypeMapping TypeName="WKSAModel.TournamentDivision">
               <MappingFragment StoreEntitySet="TournamentDivision">
+                <ScalarProperty Name="Judge5" ColumnName="Judge5" />
+                <ScalarProperty Name="Judge4" ColumnName="Judge4" />
+                <ScalarProperty Name="Judge3" ColumnName="Judge3" />
+                <ScalarProperty Name="Judge2" ColumnName="Judge2" />
+                <ScalarProperty Name="Judge1" ColumnName="Judge1" />
                 <ScalarProperty Name="MedalsReceived" ColumnName="MedalsReceived" />
                 <ScalarProperty Name="IsCompleted" ColumnName="IsCompleted" />
                 <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
@@ -1185,6 +1641,14 @@
           <EntitySetMapping Name="CompetitorDivisions">
             <EntityTypeMapping TypeName="WKSAModel.CompetitorDivision">
               <MappingFragment StoreEntitySet="CompetitorDivision">
+                <ScalarProperty Name="TotalScore" ColumnName="TotalScore" />
+                <ScalarProperty Name="HyungBupScore" ColumnName="HyungBupScore" />
+                <ScalarProperty Name="TechnicalScore" ColumnName="TechnicalScore" />
+                <ScalarProperty Name="Judge5" ColumnName="Judge5" />
+                <ScalarProperty Name="Judge4" ColumnName="Judge4" />
+                <ScalarProperty Name="Judge3" ColumnName="Judge3" />
+                <ScalarProperty Name="Judge2" ColumnName="Judge2" />
+                <ScalarProperty Name="Judge1" ColumnName="Judge1" />
                 <ScalarProperty Name="Result" ColumnName="Result" />
                 <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
                 <ScalarProperty Name="CompetitorId" ColumnName="CompetitorId" />
@@ -1194,6 +1658,8 @@
           <EntitySetMapping Name="Competitors">
             <EntityTypeMapping TypeName="WKSAModel.Competitor">
               <MappingFragment StoreEntitySet="Competitor">
+                <ScalarProperty Name="IsSignedIn" ColumnName="IsSignedIn" />
+                <ScalarProperty Name="ShareContactDetails" ColumnName="ShareContactDetails" />
                 <ScalarProperty Name="GrandChampionId" ColumnName="GrandChampionId" />
                 <ScalarProperty Name="Age" ColumnName="Age" />
                 <ScalarProperty Name="RankId" ColumnName="RankId" />
@@ -1225,6 +1691,69 @@
               <ScalarProperty Name="GrandChampionId" ColumnName="GrandChampionId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="CompetitorDetails">
+            <EntityTypeMapping TypeName="WKSAModel.CompetitorDetail">
+              <MappingFragment StoreEntitySet="CompetitorDetails">
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+                <ScalarProperty Name="Address5" ColumnName="Address5" />
+                <ScalarProperty Name="Address4" ColumnName="Address4" />
+                <ScalarProperty Name="Address3" ColumnName="Address3" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="CompetitorId" ColumnName="CompetitorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HyungBups">
+            <EntityTypeMapping TypeName="WKSAModel.HyungBup">
+              <MappingFragment StoreEntitySet="HyungBup">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="HyungBupId" ColumnName="HyungBupId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompetitorOlympicDivisionHyungBups">
+            <EntityTypeMapping TypeName="WKSAModel.CompetitorOlympicDivisionHyungBup">
+              <MappingFragment StoreEntitySet="CompetitorOlympicDivisionHyungBup">
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Judge5" ColumnName="Judge5" />
+                <ScalarProperty Name="Judge4" ColumnName="Judge4" />
+                <ScalarProperty Name="Judge3" ColumnName="Judge3" />
+                <ScalarProperty Name="Judge2" ColumnName="Judge2" />
+                <ScalarProperty Name="Judge1" ColumnName="Judge1" />
+                <ScalarProperty Name="HyungBupId" ColumnName="HyungBupId" />
+                <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+                <ScalarProperty Name="CompetitorId" ColumnName="CompetitorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompetitorOlympicDivisionSteps">
+            <EntityTypeMapping TypeName="WKSAModel.CompetitorOlympicDivisionStep">
+              <MappingFragment StoreEntitySet="CompetitorOlympicDivisionStep">
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Judge5" ColumnName="Judge5" />
+                <ScalarProperty Name="Judge4" ColumnName="Judge4" />
+                <ScalarProperty Name="Judge3" ColumnName="Judge3" />
+                <ScalarProperty Name="Judge2" ColumnName="Judge2" />
+                <ScalarProperty Name="Judge1" ColumnName="Judge1" />
+                <ScalarProperty Name="DivisionStepId" ColumnName="DivisionStepId" />
+                <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+                <ScalarProperty Name="CompetitorId" ColumnName="CompetitorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OlympicDivisionSteps">
+            <EntityTypeMapping TypeName="WKSAModel.OlympicDivisionStep">
+              <MappingFragment StoreEntitySet="OlympicDivisionStep">
+                <ScalarProperty Name="BaseValue" ColumnName="BaseValue" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DivisionStepId" ColumnName="DivisionStepId" />
+                <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DeleteCompetitorOlympicSteps" FunctionName="WKSAModel.Store.DeleteCompetitorOlympicSteps" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1249,105 +1778,128 @@
         <EntityTypeShape EntityType="WKSAModel.Country" Width="1.5" PointX="0.75" PointY="1.75" Height="1.5956835937500002" IsExpanded="true" />
         <EntityTypeShape EntityType="WKSAModel.Venue" Width="1.5" PointX="3" PointY="1" Height="3.1340950520833331" IsExpanded="true" />
         <AssociationConnector Association="WKSAModel.FK_Venue_Country" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="2.7401432291666667" />
-          <ConnectorPoint PointX="3" PointY="2.7401432291666667" />
+          <ConnectorPoint PointX="2.25" PointY="2.8362939453125" />
+          <ConnectorPoint PointX="2.6666666666666665" PointY="2.8362939453124993" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="2.8362939453125" />
+          <ConnectorPoint PointX="3" PointY="2.8362939453125" />
         </AssociationConnector>
         <EntityTypeShape EntityType="WKSAModel.DivisionType" Width="1.5" PointX="1" PointY="4.5" Height="1.7879850260416674" />
         <EntityTypeShape EntityType="WKSAModel.Rank" Width="1.5" PointX="5.375" PointY="6.875" Height="1.5956835937499996" />
         <EntityTypeShape EntityType="WKSAModel.AgeGroup" Width="1.5" PointX="0.75" PointY="7.25" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="WKSAModel.Division" Width="1.5" PointX="7.625" PointY="5.625" Height="2.9417936197916674" />
         <AssociationConnector Association="WKSAModel.FK_TBL_EVENT_TBL_AGE" >
-          <ConnectorPoint PointX="0.84375" PointY="7.25" />
-          <ConnectorPoint PointX="0.84375" PointY="6.4372639388020829" />
-          <ConnectorPoint PointX="5.197916666666667" PointY="6.437263938802082" />
-          <ConnectorPoint PointX="5.380208333333333" PointY="6.4372639388020829" />
-          <ConnectorPoint PointX="6.760416666666667" PointY="6.437263938802082" />
-          <ConnectorPoint PointX="6.927083333333333" PointY="6.4372639388020829" />
-          <ConnectorPoint PointX="7.625" PointY="6.4372639388020829" />
+          <ConnectorPoint PointX="2.25" PointY="9.172590390625" />
+          <ConnectorPoint PointX="5.190104166666667" PointY="9.172590390625" />
+          <ConnectorPoint PointX="5.380208333333333" PointY="9.172590390625" />
+          <ConnectorPoint PointX="6.041666666666667" PointY="9.172590390625" />
+          <ConnectorPoint PointX="6.208333333333333" PointY="9.172590390625" />
+          <ConnectorPoint PointX="7.625" PointY="9.172590390625" />
         </AssociationConnector>
         <AssociationConnector Association="WKSAModel.FK_TBL_EVENT_TBL_EVENT_TYPE" >
           <ConnectorPoint PointX="2.5" PointY="5.9564925130208337" />
-          <ConnectorPoint PointX="5.197916666666667" PointY="5.9564925130208328" />
+          <ConnectorPoint PointX="5.190104166666667" PointY="5.9564925130208328" />
           <ConnectorPoint PointX="5.380208333333333" PointY="5.9564925130208337" />
-          <ConnectorPoint PointX="6.760416666666667" PointY="5.9564925130208328" />
-          <ConnectorPoint PointX="6.927083333333333" PointY="5.9564925130208337" />
+          <ConnectorPoint PointX="6.041666666666667" PointY="5.9564925130208328" />
+          <ConnectorPoint PointX="6.208333333333333" PointY="5.9564925130208337" />
+          <ConnectorPoint PointX="6.4479186666666672" PointY="5.9564925130208328" />
+          <ConnectorPoint PointX="6.6145853333333333" PointY="5.9564925130208337" />
           <ConnectorPoint PointX="7.625" PointY="5.9564925130208337" />
         </AssociationConnector>
         <AssociationConnector Association="WKSAModel.FK_TBL_EVENT_TBL_RANK" >
-          <ConnectorPoint PointX="6.875" PointY="7.5061438281250012" />
-          <ConnectorPoint PointX="7.625" PointY="7.5061438281250012" />
+          <ConnectorPoint PointX="6.875" PointY="7.9612939453125" />
+          <ConnectorPoint PointX="7.625" PointY="7.9612939453125" />
         </AssociationConnector>
         <EntityTypeShape EntityType="WKSAModel.Tournament" Width="1.5" PointX="5.25" PointY="1.375" Height="2.3648893229166674" />
         <AssociationConnector Association="WKSAModel.FK_TBL_TOURNAMENT_TBL_VENUE" >
-          <ConnectorPoint PointX="4.5" PointY="2.74974609375" />
-          <ConnectorPoint PointX="5.25" PointY="2.74974609375" />
+          <ConnectorPoint PointX="4.5" PointY="2.7545475260416667" />
+          <ConnectorPoint PointX="5.25" PointY="2.7545475260416667" />
         </AssociationConnector>
         <EntityTypeShape EntityType="WKSAModel.School" Width="1.5" PointX="12.875" PointY="2" Height="2.7494921875000031" />
         <AssociationConnector Association="WKSAModel.FK_TBL_SCHOOL_TBL_COUNTRY" >
-          <ConnectorPoint PointX="0.84375" PointY="3.7302864583333331" />
-          <ConnectorPoint PointX="0.84375" PointY="4.3170475260416667" />
-          <ConnectorPoint PointX="2.6666666666666665" PointY="4.3170475260416659" />
-          <ConnectorPoint PointX="2.8333333333333335" PointY="4.3170475260416667" />
-          <ConnectorPoint PointX="5.197916666666667" PointY="4.3170475260416659" />
-          <ConnectorPoint PointX="5.380208333333333" PointY="4.3170475260416667" />
-          <ConnectorPoint PointX="12.875" PointY="4.3170475260416667" />
+          <ConnectorPoint PointX="0.84375" PointY="3.922587890625" />
+          <ConnectorPoint PointX="0.84375" PointY="4.3747485937500006" />
+          <ConnectorPoint PointX="2.6666666666666665" PointY="4.37474859375" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="4.3747485937500006" />
+          <ConnectorPoint PointX="5.190104166666667" PointY="4.37474859375" />
+          <ConnectorPoint PointX="5.380208333333333" PointY="4.3747485937500006" />
+          <ConnectorPoint PointX="9.2916666666666661" PointY="4.37474859375" />
+          <ConnectorPoint PointX="9.4583333333333339" PointY="4.3747485937500006" />
+          <ConnectorPoint PointX="12.541666666666666" PointY="4.37474859375" />
+          <ConnectorPoint PointX="12.708333333333334" PointY="4.3747485937500006" />
+          <ConnectorPoint PointX="12.875" PointY="4.3747485937500006" />
         </AssociationConnector>
         <EntityTypeShape EntityType="WKSAModel.TournamentDivision" Width="1.5" PointX="9.875" PointY="7.5" Height="2.1725878906249951" />
         <AssociationConnector Association="WKSAModel.FK_TBL_TOURNAMENT_EVENT_TBL_EVENT" >
-          <ConnectorPoint PointX="9.125" PointY="8.1295475260416676" />
-          <ConnectorPoint PointX="9.5416666666666661" PointY="8.1295475260416676" />
-          <ConnectorPoint PointX="9.7083333333333339" PointY="8.1295475260416676" />
-          <ConnectorPoint PointX="9.875" PointY="8.1295475260416676" />
+          <ConnectorPoint PointX="9.125" PointY="8.4179996744791659" />
+          <ConnectorPoint PointX="9.5416666666666661" PointY="8.4179996744791659" />
+          <ConnectorPoint PointX="9.7083333333333339" PointY="8.4179996744791659" />
+          <ConnectorPoint PointX="9.875" PointY="8.4179996744791659" />
         </AssociationConnector>
         <AssociationConnector Association="WKSAModel.FK_TBL_TOURNAMENT_EVENT_TBL_TOURNAMENT" >
-          <ConnectorPoint PointX="5.28125" PointY="4.1244921875" />
-          <ConnectorPoint PointX="5.28125" PointY="9.3362939453125" />
-          <ConnectorPoint PointX="6.041666666666667" PointY="9.3362939453125" />
-          <ConnectorPoint PointX="6.208333333333333" PointY="9.3362939453125" />
-          <ConnectorPoint PointX="9.875" PointY="9.3362939453125" />
+          <ConnectorPoint PointX="5.2734375" PointY="4.1244921875" />
+          <ConnectorPoint PointX="5.2734375" PointY="9.3843489583333337" />
+          <ConnectorPoint PointX="6.041666666666667" PointY="9.3843489583333337" />
+          <ConnectorPoint PointX="6.208333333333333" PointY="9.3843489583333337" />
+          <ConnectorPoint PointX="9.5416666666666661" PointY="9.3843489583333337" />
+          <ConnectorPoint PointX="9.7083333333333339" PointY="9.3843489583333337" />
+          <ConnectorPoint PointX="9.875" PointY="9.3843489583333337" />
         </AssociationConnector>
         <EntityTypeShape EntityType="WKSAModel.Student" Width="1.5" PointX="15.125" PointY="2.625" Height="5.2494108072916674" />
         <AssociationConnector Association="WKSAModel.FK_TBL_STUDENT_TBL_COUNTRY" >
-          <ConnectorPoint PointX="1.5781269999999998" PointY="3.7302864583333331" />
-          <ConnectorPoint PointX="1.5781269999999998" PointY="4.125" />
-          <ConnectorPoint PointX="2.75" PointY="4.125" />
-          <ConnectorPoint PointX="2.75" PointY="5.3215950520833326" />
-          <ConnectorPoint PointX="5.197916666666667" PointY="5.3215950520833317" />
-          <ConnectorPoint PointX="5.380208333333333" PointY="5.3215950520833326" />
-          <ConnectorPoint PointX="14.75" PointY="5.3215950520833326" />
-          <ConnectorPoint PointX="14.75" PointY="4.8852106900697656" />
-          <ConnectorPoint PointX="15.125" PointY="4.8852106900697656" />
+          <ConnectorPoint PointX="1.5781269999999998" PointY="3.922587890625" />
+          <ConnectorPoint PointX="1.5781269999999998" PointY="4.25" />
+          <ConnectorPoint PointX="2.75" PointY="4.25" />
+          <ConnectorPoint PointX="2.75" PointY="5.1247054036458337" />
+          <ConnectorPoint PointX="5.190104166666667" PointY="5.1247054036458328" />
+          <ConnectorPoint PointX="5.380208333333333" PointY="5.1247054036458337" />
+          <ConnectorPoint PointX="6.041666666666667" PointY="5.1247054036458328" />
+          <ConnectorPoint PointX="6.208333333333333" PointY="5.1247054036458337" />
+          <ConnectorPoint PointX="9.375" PointY="5.1247054036458337" />
+          <ConnectorPoint PointX="9.375" PointY="4.25" />
+          <ConnectorPoint PointX="12.625" PointY="4.25" />
+          <ConnectorPoint PointX="12.625" PointY="5.4465950520833326" />
+          <ConnectorPoint PointX="14.541666666666666" PointY="5.4465950520833317" />
+          <ConnectorPoint PointX="14.708333333333334" PointY="5.4465950520833326" />
+          <ConnectorPoint PointX="14.75" PointY="5.4465950520833326" />
+          <ConnectorPoint PointX="14.75" PointY="6.6168924036458332" />
+          <ConnectorPoint PointX="15.125" PointY="6.6168924036458332" />
         </AssociationConnector>
         <AssociationConnector Association="WKSAModel.FK_TBL_STUDENT_TBL_RANK" >
-          <ConnectorPoint PointX="6.84375" PointY="6.875" />
-          <ConnectorPoint PointX="6.84375" PointY="5.4420475260416659" />
-          <ConnectorPoint PointX="14.666666666666666" PointY="5.442047526041665" />
-          <ConnectorPoint PointX="14.833333333333334" PointY="5.4420475260416659" />
-          <ConnectorPoint PointX="15.125" PointY="5.4420475260416659" />
+          <ConnectorPoint PointX="6.125" PointY="6.875" />
+          <ConnectorPoint PointX="6.125" PointY="4.3125" />
+          <ConnectorPoint PointX="12.5625" PointY="4.3125" />
+          <ConnectorPoint PointX="12.5625" PointY="5.2590950520833326" />
+          <ConnectorPoint PointX="14.625" PointY="5.2590950520833326" />
+          <ConnectorPoint PointX="14.625" PointY="7.2769036054687444" />
+          <ConnectorPoint PointX="14.729166666666666" PointY="7.2769036054687435" />
+          <ConnectorPoint PointX="14.958333333333334" PointY="7.2769036054687444" />
+          <ConnectorPoint PointX="15.125" PointY="7.2769036054687444" />
         </AssociationConnector>
         <AssociationConnector Association="WKSAModel.FK_TBL_SCHOOL_TBL_STUDENT" >
-          <ConnectorPoint PointX="15.125" PointY="3.3976526561123976" />
-          <ConnectorPoint PointX="14.958333333333334" PointY="3.3976526561123972" />
-          <ConnectorPoint PointX="14.791666666666666" PointY="3.3976526561123976" />
-          <ConnectorPoint PointX="14.375" PointY="3.3976526561123976" />
+          <ConnectorPoint PointX="15.125" PointY="3.4204287027231177" />
+          <ConnectorPoint PointX="14.375" PointY="3.4204287027231177" />
         </AssociationConnector>
         <AssociationConnector Association="WKSAModel.FK_TBL_STUDENT_TBL_SCHOOL" >
-          <ConnectorPoint PointX="14.375" PointY="4.3283738540978653" />
-          <ConnectorPoint PointX="14.791666666666666" PointY="4.3283738540978645" />
-          <ConnectorPoint PointX="14.958333333333334" PointY="4.3283738540978653" />
-          <ConnectorPoint PointX="15.125" PointY="4.3283738540978653" />
+          <ConnectorPoint PointX="14.375" PointY="4.3397618774032249" />
+          <ConnectorPoint PointX="15.125" PointY="4.3397618774032249" />
         </AssociationConnector>
         <EntityTypeShape EntityType="WKSAModel.CompetitorDivision" Width="1.5" PointX="19.625" PointY="5.25" Height="1.9802864583333388" />
         <AssociationConnector Association="WKSAModel.FK_CompetitorDivision_Division" >
-          <ConnectorPoint PointX="9.125" PointY="6.4375005000000005" />
-          <ConnectorPoint PointX="14.875" PointY="6.4375005000000005" />
-          <ConnectorPoint PointX="14.875" PointY="8.1244108072916674" />
-          <ConnectorPoint PointX="17.635414166666667" PointY="8.1244108072916674" />
-          <ConnectorPoint PointX="17.802080833333331" PointY="8.1244108072916674" />
-          <ConnectorPoint PointX="18.041666666666668" PointY="8.1244108072916674" />
-          <ConnectorPoint PointX="18.208333333333332" PointY="8.1244108072916674" />
-          <ConnectorPoint PointX="20.375" PointY="8.1244108072916674" />
-          <ConnectorPoint PointX="20.375" PointY="7.2302864583333388" />
+          <ConnectorPoint PointX="9.125" PointY="6.9902478372395827" />
+          <ConnectorPoint PointX="9.5416666666666661" PointY="6.9902478372395818" />
+          <ConnectorPoint PointX="9.7083333333333339" PointY="6.9902478372395827" />
+          <ConnectorPoint PointX="9.875" PointY="6.9902478372395827" />
+          <ConnectorPoint PointX="9.875" PointY="7.125" />
+          <ConnectorPoint PointX="14.541666666666666" PointY="7.1249999999999991" />
+          <ConnectorPoint PointX="14.708333333333334" PointY="7.125" />
+          <ConnectorPoint PointX="14.875" PointY="7.125" />
+          <ConnectorPoint PointX="14.875" PointY="8.4417936197916656" />
+          <ConnectorPoint PointX="17.635414166666667" PointY="8.4417936197916656" />
+          <ConnectorPoint PointX="17.802080833333331" PointY="8.4417936197916656" />
+          <ConnectorPoint PointX="18.244792916666668" PointY="8.4417936197916656" />
+          <ConnectorPoint PointX="18.411459583333333" PointY="8.4417936197916656" />
+          <ConnectorPoint PointX="20.375" PointY="8.4417936197916656" />
+          <ConnectorPoint PointX="20.375" PointY="8.1917936197916656" />
         </AssociationConnector>
         <AssociationConnector Association="WKSAModel.FK_AgeGroup_AgeGroup" >
           <ConnectorPoint PointX="1.2819230769230767" PointY="10.191793619791666" />
@@ -1357,48 +1909,118 @@
         </AssociationConnector>
         <EntityTypeShape EntityType="WKSAModel.Competitor" Width="1.5" PointX="17.375" PointY="3.5" Height="3.326396484374996" />
         <AssociationConnector Association="WKSAModel.FK_Competitor_Rank" >
-          <ConnectorPoint PointX="6.875" PointY="8.31957541015625" />
-          <ConnectorPoint PointX="7.375" PointY="8.31957541015625" />
-          <ConnectorPoint PointX="7.375" PointY="9.0090950520833335" />
-          <ConnectorPoint PointX="9.625" PointY="9.0090950520833335" />
-          <ConnectorPoint PointX="9.625" PointY="7.2500000000000009" />
-          <ConnectorPoint PointX="14.8125" PointY="7.2500000000000009" />
-          <ConnectorPoint PointX="14.8125" PointY="8.3744108072916674" />
-          <ConnectorPoint PointX="17.635414166666667" PointY="8.3744108072916674" />
-          <ConnectorPoint PointX="17.802080833333331" PointY="8.3744108072916674" />
-          <ConnectorPoint PointX="18.125" PointY="8.3744108072916674" />
-          <ConnectorPoint PointX="18.125" PointY="6.826396484374996" />
+          <ConnectorPoint PointX="6.531252" PointY="6.875" />
+          <ConnectorPoint PointX="6.531252" PointY="5.375" />
+          <ConnectorPoint PointX="9.375" PointY="5.375" />
+          <ConnectorPoint PointX="9.375" PointY="6.922587890624996" />
+          <ConnectorPoint PointX="9.5416666666666661" PointY="6.9225878906249951" />
+          <ConnectorPoint PointX="9.7083333333333339" PointY="6.922587890624996" />
+          <ConnectorPoint PointX="11.542821512820511" PointY="6.9225878906249951" />
+          <ConnectorPoint PointX="11.709488179487179" PointY="6.922587890624996" />
+          <ConnectorPoint PointX="14.541666666666666" PointY="6.9225878906249951" />
+          <ConnectorPoint PointX="14.708333333333334" PointY="6.922587890624996" />
+          <ConnectorPoint PointX="14.8125" PointY="6.922587890624996" />
+          <ConnectorPoint PointX="14.8125" PointY="8.1244108072916674" />
+          <ConnectorPoint PointX="17" PointY="8.1244108072916674" />
+          <ConnectorPoint PointX="17" PointY="6.5173042097506606" />
+          <ConnectorPoint PointX="17.375" PointY="6.5173042097506606" />
         </AssociationConnector>
         <AssociationConnector Association="WKSAModel.FK_CompetitorDivision_Competitor" >
-          <ConnectorPoint PointX="18.875" PointY="6.0381982421875" />
-          <ConnectorPoint PointX="19.625" PointY="6.0381982421875" />
+          <ConnectorPoint PointX="18.875" PointY="6.1984882805012491" />
+          <ConnectorPoint PointX="19.625" PointY="6.1984882805012491" />
         </AssociationConnector>
         <AssociationConnector Association="WKSAModel.FK_TBL_COMPETITOR_TBL_STUDENT" >
-          <ConnectorPoint PointX="16.625" PointY="5.1631982421875" />
-          <ConnectorPoint PointX="17.375" PointY="5.1631982421875" />
+          <ConnectorPoint PointX="16.625" PointY="4.8307523722131727" />
+          <ConnectorPoint PointX="17.375" PointY="4.8307523722131727" />
         </AssociationConnector>
         <AssociationConnector Association="WKSAModel.FK_TBL_COMPETITOR_TBL_TOURNAMENT" >
           <ConnectorPoint PointX="6.75" PointY="1.65625" />
-          <ConnectorPoint PointX="18.125" PointY="1.65625" />
-          <ConnectorPoint PointX="18.125" PointY="3.5" />
+          <ConnectorPoint PointX="17.837298493029927" PointY="1.65625" />
+          <ConnectorPoint PointX="17.837298493029927" PointY="3.5" />
         </AssociationConnector>
         <EntityTypeShape EntityType="WKSAModel.GrandChampion" Width="1.5" PointX="7.625" PointY="9.625" Height="2.749492187499996" />
         <AssociationConnector Association="WKSAModel.FK_Competitor_GrandChampion" >
-          <ConnectorPoint PointX="9.125" PointY="11.150940755208332" />
-          <ConnectorPoint PointX="17.7187475" PointY="11.150940755208332" />
-          <ConnectorPoint PointX="17.7187475" PointY="6.826396484374996" />
+          <ConnectorPoint PointX="9.125" PointY="11.6316943359375" />
+          <ConnectorPoint PointX="11.666666666666666" PointY="11.6316943359375" />
+          <ConnectorPoint PointX="11.833333333333334" PointY="11.6316943359375" />
+          <ConnectorPoint PointX="17.7187475" PointY="11.6316943359375" />
+          <ConnectorPoint PointX="17.7187475" PointY="7.7879036458333326" />
         </AssociationConnector>
         <AssociationConnector Association="WKSAModel.FK_TBL_GRAND_CHAMP_TBL_RANK" >
           <ConnectorPoint PointX="6.125" PointY="9.047587890625" />
-          <ConnectorPoint PointX="6.125" PointY="11.095896809895834" />
-          <ConnectorPoint PointX="7.625" PointY="11.095896809895834" />
+          <ConnectorPoint PointX="6.125" PointY="11.587206517269248" />
+          <ConnectorPoint PointX="7.625" PointY="11.587206517269248" />
         </AssociationConnector>
         <AssociationConnector Association="WKSAModel.TournamentGrandChampion" >
-          <ConnectorPoint PointX="7.625" PointY="10.329195904947916" />
-          <ConnectorPoint PointX="6.208333333333333" PointY="10.329195904947916" />
-          <ConnectorPoint PointX="6.041666666666667" PointY="10.329195904947916" />
-          <ConnectorPoint PointX="5.296875" PointY="10.329195904947916" />
+          <ConnectorPoint PointX="7.625" PointY="10.574850758634623" />
+          <ConnectorPoint PointX="6.208333333333333" PointY="10.574850758634623" />
+          <ConnectorPoint PointX="6.041666666666667" PointY="10.574850758634623" />
+          <ConnectorPoint PointX="5.296875" PointY="10.574850758634623" />
           <ConnectorPoint PointX="5.296875" PointY="4.1244921875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="WKSAModel.CompetitorDetail" Width="1.5" PointX="19.625" PointY="1" Height="2.9417936197916674" />
+        <AssociationConnector Association="WKSAModel.FK_CompetitorDetails_Competitor" >
+          <ConnectorPoint PointX="18.875" PointY="3.7208968098958333" />
+          <ConnectorPoint PointX="19.625" PointY="3.7208968098958333" />
+        </AssociationConnector>
+        <AssociationConnector Association="WKSAModel.FK_CompetitorDetails_Country" >
+          <ConnectorPoint PointX="2.25" PointY="1.7511528461538464" />
+          <ConnectorPoint PointX="2.625" PointY="1.3761528461538468" />
+          <ConnectorPoint PointX="2.625" PointY="0.625" />
+          <ConnectorPoint PointX="19.25" PointY="0.625" />
+          <ConnectorPoint PointX="19.625" PointY="1" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="WKSAModel.HyungBup" Width="1.5" PointX="20.375" PointY="13.75" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="WKSAModel.CompetitorOlympicDivisionHyungBup" Width="1.5" PointX="22.625" PointY="7.75" Height="3.3263964843750031" />
+        <AssociationConnector Association="WKSAModel.FK_CompetitorOlympicDivisionHyungBup_Competitor" >
+          <ConnectorPoint PointX="18.875" PointY="4.5958968098958337" />
+          <ConnectorPoint PointX="23.628908125000002" PointY="4.5958968098958337" />
+          <ConnectorPoint PointX="23.628908125000002" PointY="7.75" />
+        </AssociationConnector>
+        <AssociationConnector Association="WKSAModel.FK_CompetitorOlympicDivisionHyungBup_Division" >
+          <ConnectorPoint PointX="8.375" PointY="5.625" />
+          <ConnectorPoint PointX="8.375" PointY="5.359375" />
+          <ConnectorPoint PointX="9.625" PointY="5.359375" />
+          <ConnectorPoint PointX="9.625" PointY="10.884095052083332" />
+          <ConnectorPoint PointX="11.666666666666666" PointY="10.884095052083332" />
+          <ConnectorPoint PointX="11.833333333333334" PointY="10.884095052083332" />
+          <ConnectorPoint PointX="17.635414166666667" PointY="10.884095052083332" />
+          <ConnectorPoint PointX="17.802080833333331" PointY="10.884095052083332" />
+          <ConnectorPoint PointX="19.375" PointY="10.884095052083332" />
+          <ConnectorPoint PointX="19.375" PointY="9.25" />
+          <ConnectorPoint PointX="21.447916666666668" PointY="9.25" />
+          <ConnectorPoint PointX="21.614583333333332" PointY="9.25" />
+          <ConnectorPoint PointX="22.25" PointY="9.25" />
+          <ConnectorPoint PointX="22.25" PointY="10.008023647135413" />
+          <ConnectorPoint PointX="22.625" PointY="10.008023647135413" />
+        </AssociationConnector>
+        <AssociationConnector Association="WKSAModel.FK_CompetitorOlympicDivisionHyungBup_HyungBup" >
+          <ConnectorPoint PointX="21.53125" PointY="13.75" />
+          <ConnectorPoint PointX="21.53125" PointY="8.7521468098958337" />
+          <ConnectorPoint PointX="22.625" PointY="8.7521468098958337" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="WKSAModel.CompetitorOlympicDivisionStep" Width="1.5" PointX="19.625" PointY="9.5" Height="3.1340950520833388" />
+        <AssociationConnector Association="WKSAModel.FK_CompetitorOlympicDivisionStep_Competitor" >
+          <ConnectorPoint PointX="18.32812625" PointY="7.7879036458333326" />
+          <ConnectorPoint PointX="18.32812625" PointY="10.192047526041666" />
+          <ConnectorPoint PointX="19.291666666666668" PointY="10.192047526041666" />
+          <ConnectorPoint PointX="19.458333333333332" PointY="10.192047526041666" />
+          <ConnectorPoint PointX="19.625" PointY="10.192047526041666" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="WKSAModel.OlympicDivisionStep" Width="1.5" PointX="9.875" PointY="4.5" Height="2.172587890624996" />
+        <AssociationConnector Association="WKSAModel.FK_CompetitorOlympicDivisionStep_OlympicDivisionStep" >
+          <ConnectorPoint PointX="11.375" PointY="6.67143304447115" />
+          <ConnectorPoint PointX="11.75" PointY="7.04643304447115" />
+          <ConnectorPoint PointX="11.75" PointY="12.132894194010415" />
+          <ConnectorPoint PointX="19.625" PointY="12.132894194010415" />
+        </AssociationConnector>
+        <AssociationConnector Association="WKSAModel.FK_OlympicDivisionStep_Division" >
+          <ConnectorPoint PointX="9.125" PointY="6.148793945312498" />
+          <ConnectorPoint PointX="9.2916666666666661" PointY="6.1487939453124971" />
+          <ConnectorPoint PointX="9.4583333333333339" PointY="6.148793945312498" />
+          <ConnectorPoint PointX="9.5416666666666661" PointY="6.1487939453124971" />
+          <ConnectorPoint PointX="9.7083333333333339" PointY="6.148793945312498" />
+          <ConnectorPoint PointX="9.875" PointY="6.148793945312498" />
         </AssociationConnector>
         </Diagram>
     </Diagrams>

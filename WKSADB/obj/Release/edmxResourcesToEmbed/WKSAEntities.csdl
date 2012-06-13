@@ -135,6 +135,10 @@
       <End Role="Division" EntitySet="Divisions" />
       <End Role="OlympicDivisionStep" EntitySet="OlympicDivisionSteps" />
     </AssociationSet>
+    <FunctionImport Name="DeleteCompetitorOlympicSteps">
+      <Parameter Name="CompetitorId" Mode="In" Type="Int32" />
+      <Parameter Name="DivisionId" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="Country">
     <Key>

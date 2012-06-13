@@ -39,6 +39,14 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("WKSAModel", "FK_Competitor_GrandChampion", "GrandChampion", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(WKSADB.GrandChampion), "Competitor", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.Competitor), true)]
 [assembly: EdmRelationshipAttribute("WKSAModel", "FK_TBL_GRAND_CHAMP_TBL_RANK", "Rank", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(WKSADB.Rank), "GrandChampion", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.GrandChampion), true)]
 [assembly: EdmRelationshipAttribute("WKSAModel", "TournamentGrandChampion", "GrandChampion", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.GrandChampion), "Tournament", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.Tournament))]
+[assembly: EdmRelationshipAttribute("WKSAModel", "FK_CompetitorDetails_Competitor", "Competitor", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(WKSADB.Competitor), "CompetitorDetail", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(WKSADB.CompetitorDetail), true)]
+[assembly: EdmRelationshipAttribute("WKSAModel", "FK_CompetitorDetails_Country", "Country", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(WKSADB.Country), "CompetitorDetail", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.CompetitorDetail), true)]
+[assembly: EdmRelationshipAttribute("WKSAModel", "FK_CompetitorOlympicDivisionHyungBup_Competitor", "Competitor", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(WKSADB.Competitor), "CompetitorOlympicDivisionHyungBup", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.CompetitorOlympicDivisionHyungBup), true)]
+[assembly: EdmRelationshipAttribute("WKSAModel", "FK_CompetitorOlympicDivisionHyungBup_Division", "Division", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(WKSADB.Division), "CompetitorOlympicDivisionHyungBup", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.CompetitorOlympicDivisionHyungBup), true)]
+[assembly: EdmRelationshipAttribute("WKSAModel", "FK_CompetitorOlympicDivisionHyungBup_HyungBup", "HyungBup", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(WKSADB.HyungBup), "CompetitorOlympicDivisionHyungBup", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.CompetitorOlympicDivisionHyungBup), true)]
+[assembly: EdmRelationshipAttribute("WKSAModel", "FK_CompetitorOlympicDivisionStep_Competitor", "Competitor", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(WKSADB.Competitor), "CompetitorOlympicDivisionStep", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.CompetitorOlympicDivisionStep), true)]
+[assembly: EdmRelationshipAttribute("WKSAModel", "FK_CompetitorOlympicDivisionStep_OlympicDivisionStep", "OlympicDivisionStep", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(WKSADB.OlympicDivisionStep), "CompetitorOlympicDivisionStep", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.CompetitorOlympicDivisionStep), true)]
+[assembly: EdmRelationshipAttribute("WKSAModel", "FK_OlympicDivisionStep_Division", "Division", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(WKSADB.Division), "OlympicDivisionStep", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(WKSADB.OlympicDivisionStep), true)]
 
 #endregion
 
@@ -297,6 +305,86 @@ namespace WKSADB
             }
         }
         private ObjectSet<GrandChampion> _GrandChampions;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<CompetitorDetail> CompetitorDetails
+        {
+            get
+            {
+                if ((_CompetitorDetails == null))
+                {
+                    _CompetitorDetails = base.CreateObjectSet<CompetitorDetail>("CompetitorDetails");
+                }
+                return _CompetitorDetails;
+            }
+        }
+        private ObjectSet<CompetitorDetail> _CompetitorDetails;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<HyungBup> HyungBups
+        {
+            get
+            {
+                if ((_HyungBups == null))
+                {
+                    _HyungBups = base.CreateObjectSet<HyungBup>("HyungBups");
+                }
+                return _HyungBups;
+            }
+        }
+        private ObjectSet<HyungBup> _HyungBups;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<CompetitorOlympicDivisionHyungBup> CompetitorOlympicDivisionHyungBups
+        {
+            get
+            {
+                if ((_CompetitorOlympicDivisionHyungBups == null))
+                {
+                    _CompetitorOlympicDivisionHyungBups = base.CreateObjectSet<CompetitorOlympicDivisionHyungBup>("CompetitorOlympicDivisionHyungBups");
+                }
+                return _CompetitorOlympicDivisionHyungBups;
+            }
+        }
+        private ObjectSet<CompetitorOlympicDivisionHyungBup> _CompetitorOlympicDivisionHyungBups;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<CompetitorOlympicDivisionStep> CompetitorOlympicDivisionSteps
+        {
+            get
+            {
+                if ((_CompetitorOlympicDivisionSteps == null))
+                {
+                    _CompetitorOlympicDivisionSteps = base.CreateObjectSet<CompetitorOlympicDivisionStep>("CompetitorOlympicDivisionSteps");
+                }
+                return _CompetitorOlympicDivisionSteps;
+            }
+        }
+        private ObjectSet<CompetitorOlympicDivisionStep> _CompetitorOlympicDivisionSteps;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<OlympicDivisionStep> OlympicDivisionSteps
+        {
+            get
+            {
+                if ((_OlympicDivisionSteps == null))
+                {
+                    _OlympicDivisionSteps = base.CreateObjectSet<OlympicDivisionStep>("OlympicDivisionSteps");
+                }
+                return _OlympicDivisionSteps;
+            }
+        }
+        private ObjectSet<OlympicDivisionStep> _OlympicDivisionSteps;
 
         #endregion
         #region AddTo Methods
@@ -403,6 +491,79 @@ namespace WKSADB
         public void AddToGrandChampions(GrandChampion grandChampion)
         {
             base.AddObject("GrandChampions", grandChampion);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the CompetitorDetails EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToCompetitorDetails(CompetitorDetail competitorDetail)
+        {
+            base.AddObject("CompetitorDetails", competitorDetail);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the HyungBups EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToHyungBups(HyungBup hyungBup)
+        {
+            base.AddObject("HyungBups", hyungBup);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the CompetitorOlympicDivisionHyungBups EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToCompetitorOlympicDivisionHyungBups(CompetitorOlympicDivisionHyungBup competitorOlympicDivisionHyungBup)
+        {
+            base.AddObject("CompetitorOlympicDivisionHyungBups", competitorOlympicDivisionHyungBup);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the CompetitorOlympicDivisionSteps EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToCompetitorOlympicDivisionSteps(CompetitorOlympicDivisionStep competitorOlympicDivisionStep)
+        {
+            base.AddObject("CompetitorOlympicDivisionSteps", competitorOlympicDivisionStep);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the OlympicDivisionSteps EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToOlympicDivisionSteps(OlympicDivisionStep olympicDivisionStep)
+        {
+            base.AddObject("OlympicDivisionSteps", olympicDivisionStep);
+        }
+
+        #endregion
+        #region Function Imports
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="competitorId">No Metadata Documentation available.</param>
+        /// <param name="divisionId">No Metadata Documentation available.</param>
+        public int DeleteCompetitorOlympicSteps(Nullable<global::System.Int32> competitorId, Nullable<global::System.Int32> divisionId)
+        {
+            ObjectParameter competitorIdParameter;
+            if (competitorId.HasValue)
+            {
+                competitorIdParameter = new ObjectParameter("CompetitorId", competitorId);
+            }
+            else
+            {
+                competitorIdParameter = new ObjectParameter("CompetitorId", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter divisionIdParameter;
+            if (divisionId.HasValue)
+            {
+                divisionIdParameter = new ObjectParameter("DivisionId", divisionId);
+            }
+            else
+            {
+                divisionIdParameter = new ObjectParameter("DivisionId", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction("DeleteCompetitorOlympicSteps", competitorIdParameter, divisionIdParameter);
         }
 
         #endregion
@@ -696,7 +857,9 @@ namespace WKSADB
         /// <param name="fee">Initial value of the Fee property.</param>
         /// <param name="rankId">Initial value of the RankId property.</param>
         /// <param name="age">Initial value of the Age property.</param>
-        public static Competitor CreateCompetitor(global::System.Int32 competitorId, global::System.Int32 tournamentId, global::System.Int32 studentId, global::System.Decimal fee, global::System.Int32 rankId, global::System.Int32 age)
+        /// <param name="shareContactDetails">Initial value of the ShareContactDetails property.</param>
+        /// <param name="isSignedIn">Initial value of the IsSignedIn property.</param>
+        public static Competitor CreateCompetitor(global::System.Int32 competitorId, global::System.Int32 tournamentId, global::System.Int32 studentId, global::System.Decimal fee, global::System.Int32 rankId, global::System.Int32 age, global::System.Boolean shareContactDetails, global::System.Boolean isSignedIn)
         {
             Competitor competitor = new Competitor();
             competitor.CompetitorId = competitorId;
@@ -705,6 +868,8 @@ namespace WKSADB
             competitor.Fee = fee;
             competitor.RankId = rankId;
             competitor.Age = age;
+            competitor.ShareContactDetails = shareContactDetails;
+            competitor.IsSignedIn = isSignedIn;
             return competitor;
         }
 
@@ -881,6 +1046,54 @@ namespace WKSADB
         private Nullable<global::System.Int32> _GrandChampionId;
         partial void OnGrandChampionIdChanging(Nullable<global::System.Int32> value);
         partial void OnGrandChampionIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean ShareContactDetails
+        {
+            get
+            {
+                return _ShareContactDetails;
+            }
+            set
+            {
+                OnShareContactDetailsChanging(value);
+                ReportPropertyChanging("ShareContactDetails");
+                _ShareContactDetails = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ShareContactDetails");
+                OnShareContactDetailsChanged();
+            }
+        }
+        private global::System.Boolean _ShareContactDetails;
+        partial void OnShareContactDetailsChanging(global::System.Boolean value);
+        partial void OnShareContactDetailsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsSignedIn
+        {
+            get
+            {
+                return _IsSignedIn;
+            }
+            set
+            {
+                OnIsSignedInChanging(value);
+                ReportPropertyChanging("IsSignedIn");
+                _IsSignedIn = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsSignedIn");
+                OnIsSignedInChanged();
+            }
+        }
+        private global::System.Boolean _IsSignedIn;
+        partial void OnIsSignedInChanging(global::System.Boolean value);
+        partial void OnIsSignedInChanged();
 
         #endregion
     
@@ -1059,6 +1272,390 @@ namespace WKSADB
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_CompetitorDetails_Competitor", "CompetitorDetail")]
+        public CompetitorDetail CompetitorDetail
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CompetitorDetail>("WKSAModel.FK_CompetitorDetails_Competitor", "CompetitorDetail").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CompetitorDetail>("WKSAModel.FK_CompetitorDetails_Competitor", "CompetitorDetail").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<CompetitorDetail> CompetitorDetailReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CompetitorDetail>("WKSAModel.FK_CompetitorDetails_Competitor", "CompetitorDetail");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CompetitorDetail>("WKSAModel.FK_CompetitorDetails_Competitor", "CompetitorDetail", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_CompetitorOlympicDivisionHyungBup_Competitor", "CompetitorOlympicDivisionHyungBup")]
+        public EntityCollection<CompetitorOlympicDivisionHyungBup> CompetitorOlympicDivisionHyungBups
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CompetitorOlympicDivisionHyungBup>("WKSAModel.FK_CompetitorOlympicDivisionHyungBup_Competitor", "CompetitorOlympicDivisionHyungBup");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CompetitorOlympicDivisionHyungBup>("WKSAModel.FK_CompetitorOlympicDivisionHyungBup_Competitor", "CompetitorOlympicDivisionHyungBup", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_CompetitorOlympicDivisionStep_Competitor", "CompetitorOlympicDivisionStep")]
+        public EntityCollection<CompetitorOlympicDivisionStep> CompetitorOlympicDivisionSteps
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CompetitorOlympicDivisionStep>("WKSAModel.FK_CompetitorOlympicDivisionStep_Competitor", "CompetitorOlympicDivisionStep");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CompetitorOlympicDivisionStep>("WKSAModel.FK_CompetitorOlympicDivisionStep_Competitor", "CompetitorOlympicDivisionStep", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="WKSAModel", Name="CompetitorDetail")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class CompetitorDetail : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new CompetitorDetail object.
+        /// </summary>
+        /// <param name="competitorId">Initial value of the CompetitorId property.</param>
+        public static CompetitorDetail CreateCompetitorDetail(global::System.Int32 competitorId)
+        {
+            CompetitorDetail competitorDetail = new CompetitorDetail();
+            competitorDetail.CompetitorId = competitorId;
+            return competitorDetail;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 CompetitorId
+        {
+            get
+            {
+                return _CompetitorId;
+            }
+            set
+            {
+                if (_CompetitorId != value)
+                {
+                    OnCompetitorIdChanging(value);
+                    ReportPropertyChanging("CompetitorId");
+                    _CompetitorId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("CompetitorId");
+                    OnCompetitorIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _CompetitorId;
+        partial void OnCompetitorIdChanging(global::System.Int32 value);
+        partial void OnCompetitorIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Address1
+        {
+            get
+            {
+                return _Address1;
+            }
+            set
+            {
+                OnAddress1Changing(value);
+                ReportPropertyChanging("Address1");
+                _Address1 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Address1");
+                OnAddress1Changed();
+            }
+        }
+        private global::System.String _Address1;
+        partial void OnAddress1Changing(global::System.String value);
+        partial void OnAddress1Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Address2
+        {
+            get
+            {
+                return _Address2;
+            }
+            set
+            {
+                OnAddress2Changing(value);
+                ReportPropertyChanging("Address2");
+                _Address2 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Address2");
+                OnAddress2Changed();
+            }
+        }
+        private global::System.String _Address2;
+        partial void OnAddress2Changing(global::System.String value);
+        partial void OnAddress2Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Address3
+        {
+            get
+            {
+                return _Address3;
+            }
+            set
+            {
+                OnAddress3Changing(value);
+                ReportPropertyChanging("Address3");
+                _Address3 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Address3");
+                OnAddress3Changed();
+            }
+        }
+        private global::System.String _Address3;
+        partial void OnAddress3Changing(global::System.String value);
+        partial void OnAddress3Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Address4
+        {
+            get
+            {
+                return _Address4;
+            }
+            set
+            {
+                OnAddress4Changing(value);
+                ReportPropertyChanging("Address4");
+                _Address4 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Address4");
+                OnAddress4Changed();
+            }
+        }
+        private global::System.String _Address4;
+        partial void OnAddress4Changing(global::System.String value);
+        partial void OnAddress4Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Address5
+        {
+            get
+            {
+                return _Address5;
+            }
+            set
+            {
+                OnAddress5Changing(value);
+                ReportPropertyChanging("Address5");
+                _Address5 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Address5");
+                OnAddress5Changed();
+            }
+        }
+        private global::System.String _Address5;
+        partial void OnAddress5Changing(global::System.String value);
+        partial void OnAddress5Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Postcode
+        {
+            get
+            {
+                return _Postcode;
+            }
+            set
+            {
+                OnPostcodeChanging(value);
+                ReportPropertyChanging("Postcode");
+                _Postcode = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Postcode");
+                OnPostcodeChanged();
+            }
+        }
+        private global::System.String _Postcode;
+        partial void OnPostcodeChanging(global::System.String value);
+        partial void OnPostcodeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> CountryId
+        {
+            get
+            {
+                return _CountryId;
+            }
+            set
+            {
+                OnCountryIdChanging(value);
+                ReportPropertyChanging("CountryId");
+                _CountryId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CountryId");
+                OnCountryIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _CountryId;
+        partial void OnCountryIdChanging(Nullable<global::System.Int32> value);
+        partial void OnCountryIdChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_CompetitorDetails_Competitor", "Competitor")]
+        public Competitor Competitor
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Competitor>("WKSAModel.FK_CompetitorDetails_Competitor", "Competitor").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Competitor>("WKSAModel.FK_CompetitorDetails_Competitor", "Competitor").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Competitor> CompetitorReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Competitor>("WKSAModel.FK_CompetitorDetails_Competitor", "Competitor");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Competitor>("WKSAModel.FK_CompetitorDetails_Competitor", "Competitor", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_CompetitorDetails_Country", "Country")]
+        public Country Country
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("WKSAModel.FK_CompetitorDetails_Country", "Country").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("WKSAModel.FK_CompetitorDetails_Country", "Country").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Country> CountryReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("WKSAModel.FK_CompetitorDetails_Country", "Country");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Country>("WKSAModel.FK_CompetitorDetails_Country", "Country", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -1166,6 +1763,198 @@ namespace WKSADB
         private Nullable<global::System.Int32> _Result;
         partial void OnResultChanging(Nullable<global::System.Int32> value);
         partial void OnResultChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Judge1
+        {
+            get
+            {
+                return _Judge1;
+            }
+            set
+            {
+                OnJudge1Changing(value);
+                ReportPropertyChanging("Judge1");
+                _Judge1 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Judge1");
+                OnJudge1Changed();
+            }
+        }
+        private Nullable<global::System.Decimal> _Judge1;
+        partial void OnJudge1Changing(Nullable<global::System.Decimal> value);
+        partial void OnJudge1Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Judge2
+        {
+            get
+            {
+                return _Judge2;
+            }
+            set
+            {
+                OnJudge2Changing(value);
+                ReportPropertyChanging("Judge2");
+                _Judge2 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Judge2");
+                OnJudge2Changed();
+            }
+        }
+        private Nullable<global::System.Decimal> _Judge2;
+        partial void OnJudge2Changing(Nullable<global::System.Decimal> value);
+        partial void OnJudge2Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Judge3
+        {
+            get
+            {
+                return _Judge3;
+            }
+            set
+            {
+                OnJudge3Changing(value);
+                ReportPropertyChanging("Judge3");
+                _Judge3 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Judge3");
+                OnJudge3Changed();
+            }
+        }
+        private Nullable<global::System.Decimal> _Judge3;
+        partial void OnJudge3Changing(Nullable<global::System.Decimal> value);
+        partial void OnJudge3Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Judge4
+        {
+            get
+            {
+                return _Judge4;
+            }
+            set
+            {
+                OnJudge4Changing(value);
+                ReportPropertyChanging("Judge4");
+                _Judge4 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Judge4");
+                OnJudge4Changed();
+            }
+        }
+        private Nullable<global::System.Decimal> _Judge4;
+        partial void OnJudge4Changing(Nullable<global::System.Decimal> value);
+        partial void OnJudge4Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Judge5
+        {
+            get
+            {
+                return _Judge5;
+            }
+            set
+            {
+                OnJudge5Changing(value);
+                ReportPropertyChanging("Judge5");
+                _Judge5 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Judge5");
+                OnJudge5Changed();
+            }
+        }
+        private Nullable<global::System.Decimal> _Judge5;
+        partial void OnJudge5Changing(Nullable<global::System.Decimal> value);
+        partial void OnJudge5Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> TechnicalScore
+        {
+            get
+            {
+                return _TechnicalScore;
+            }
+            set
+            {
+                OnTechnicalScoreChanging(value);
+                ReportPropertyChanging("TechnicalScore");
+                _TechnicalScore = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TechnicalScore");
+                OnTechnicalScoreChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _TechnicalScore;
+        partial void OnTechnicalScoreChanging(Nullable<global::System.Decimal> value);
+        partial void OnTechnicalScoreChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> HyungBupScore
+        {
+            get
+            {
+                return _HyungBupScore;
+            }
+            set
+            {
+                OnHyungBupScoreChanging(value);
+                ReportPropertyChanging("HyungBupScore");
+                _HyungBupScore = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HyungBupScore");
+                OnHyungBupScoreChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _HyungBupScore;
+        partial void OnHyungBupScoreChanging(Nullable<global::System.Decimal> value);
+        partial void OnHyungBupScoreChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> TotalScore
+        {
+            get
+            {
+                return _TotalScore;
+            }
+            set
+            {
+                OnTotalScoreChanging(value);
+                ReportPropertyChanging("TotalScore");
+                _TotalScore = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TotalScore");
+                OnTotalScoreChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _TotalScore;
+        partial void OnTotalScoreChanging(Nullable<global::System.Decimal> value);
+        partial void OnTotalScoreChanged();
 
         #endregion
     
@@ -1243,6 +2032,732 @@ namespace WKSADB
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Competitor>("WKSAModel.FK_CompetitorDivision_Competitor", "Competitor", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="WKSAModel", Name="CompetitorOlympicDivisionHyungBup")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class CompetitorOlympicDivisionHyungBup : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new CompetitorOlympicDivisionHyungBup object.
+        /// </summary>
+        /// <param name="competitorId">Initial value of the CompetitorId property.</param>
+        /// <param name="divisionId">Initial value of the DivisionId property.</param>
+        /// <param name="hyungBupId">Initial value of the HyungBupId property.</param>
+        /// <param name="judge1">Initial value of the Judge1 property.</param>
+        /// <param name="judge2">Initial value of the Judge2 property.</param>
+        /// <param name="judge3">Initial value of the Judge3 property.</param>
+        /// <param name="total">Initial value of the Total property.</param>
+        public static CompetitorOlympicDivisionHyungBup CreateCompetitorOlympicDivisionHyungBup(global::System.Int32 competitorId, global::System.Int32 divisionId, global::System.Int32 hyungBupId, global::System.Decimal judge1, global::System.Decimal judge2, global::System.Decimal judge3, global::System.Decimal total)
+        {
+            CompetitorOlympicDivisionHyungBup competitorOlympicDivisionHyungBup = new CompetitorOlympicDivisionHyungBup();
+            competitorOlympicDivisionHyungBup.CompetitorId = competitorId;
+            competitorOlympicDivisionHyungBup.DivisionId = divisionId;
+            competitorOlympicDivisionHyungBup.HyungBupId = hyungBupId;
+            competitorOlympicDivisionHyungBup.Judge1 = judge1;
+            competitorOlympicDivisionHyungBup.Judge2 = judge2;
+            competitorOlympicDivisionHyungBup.Judge3 = judge3;
+            competitorOlympicDivisionHyungBup.Total = total;
+            return competitorOlympicDivisionHyungBup;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 CompetitorId
+        {
+            get
+            {
+                return _CompetitorId;
+            }
+            set
+            {
+                if (_CompetitorId != value)
+                {
+                    OnCompetitorIdChanging(value);
+                    ReportPropertyChanging("CompetitorId");
+                    _CompetitorId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("CompetitorId");
+                    OnCompetitorIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _CompetitorId;
+        partial void OnCompetitorIdChanging(global::System.Int32 value);
+        partial void OnCompetitorIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 DivisionId
+        {
+            get
+            {
+                return _DivisionId;
+            }
+            set
+            {
+                if (_DivisionId != value)
+                {
+                    OnDivisionIdChanging(value);
+                    ReportPropertyChanging("DivisionId");
+                    _DivisionId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("DivisionId");
+                    OnDivisionIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _DivisionId;
+        partial void OnDivisionIdChanging(global::System.Int32 value);
+        partial void OnDivisionIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 HyungBupId
+        {
+            get
+            {
+                return _HyungBupId;
+            }
+            set
+            {
+                if (_HyungBupId != value)
+                {
+                    OnHyungBupIdChanging(value);
+                    ReportPropertyChanging("HyungBupId");
+                    _HyungBupId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("HyungBupId");
+                    OnHyungBupIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _HyungBupId;
+        partial void OnHyungBupIdChanging(global::System.Int32 value);
+        partial void OnHyungBupIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Judge1
+        {
+            get
+            {
+                return _Judge1;
+            }
+            set
+            {
+                OnJudge1Changing(value);
+                ReportPropertyChanging("Judge1");
+                _Judge1 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Judge1");
+                OnJudge1Changed();
+            }
+        }
+        private global::System.Decimal _Judge1;
+        partial void OnJudge1Changing(global::System.Decimal value);
+        partial void OnJudge1Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Judge2
+        {
+            get
+            {
+                return _Judge2;
+            }
+            set
+            {
+                OnJudge2Changing(value);
+                ReportPropertyChanging("Judge2");
+                _Judge2 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Judge2");
+                OnJudge2Changed();
+            }
+        }
+        private global::System.Decimal _Judge2;
+        partial void OnJudge2Changing(global::System.Decimal value);
+        partial void OnJudge2Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Judge3
+        {
+            get
+            {
+                return _Judge3;
+            }
+            set
+            {
+                OnJudge3Changing(value);
+                ReportPropertyChanging("Judge3");
+                _Judge3 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Judge3");
+                OnJudge3Changed();
+            }
+        }
+        private global::System.Decimal _Judge3;
+        partial void OnJudge3Changing(global::System.Decimal value);
+        partial void OnJudge3Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Judge4
+        {
+            get
+            {
+                return _Judge4;
+            }
+            set
+            {
+                OnJudge4Changing(value);
+                ReportPropertyChanging("Judge4");
+                _Judge4 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Judge4");
+                OnJudge4Changed();
+            }
+        }
+        private Nullable<global::System.Decimal> _Judge4;
+        partial void OnJudge4Changing(Nullable<global::System.Decimal> value);
+        partial void OnJudge4Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Judge5
+        {
+            get
+            {
+                return _Judge5;
+            }
+            set
+            {
+                OnJudge5Changing(value);
+                ReportPropertyChanging("Judge5");
+                _Judge5 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Judge5");
+                OnJudge5Changed();
+            }
+        }
+        private Nullable<global::System.Decimal> _Judge5;
+        partial void OnJudge5Changing(Nullable<global::System.Decimal> value);
+        partial void OnJudge5Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Total
+        {
+            get
+            {
+                return _Total;
+            }
+            set
+            {
+                OnTotalChanging(value);
+                ReportPropertyChanging("Total");
+                _Total = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Total");
+                OnTotalChanged();
+            }
+        }
+        private global::System.Decimal _Total;
+        partial void OnTotalChanging(global::System.Decimal value);
+        partial void OnTotalChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_CompetitorOlympicDivisionHyungBup_Competitor", "Competitor")]
+        public Competitor Competitor
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Competitor>("WKSAModel.FK_CompetitorOlympicDivisionHyungBup_Competitor", "Competitor").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Competitor>("WKSAModel.FK_CompetitorOlympicDivisionHyungBup_Competitor", "Competitor").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Competitor> CompetitorReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Competitor>("WKSAModel.FK_CompetitorOlympicDivisionHyungBup_Competitor", "Competitor");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Competitor>("WKSAModel.FK_CompetitorOlympicDivisionHyungBup_Competitor", "Competitor", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_CompetitorOlympicDivisionHyungBup_Division", "Division")]
+        public Division Division
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Division>("WKSAModel.FK_CompetitorOlympicDivisionHyungBup_Division", "Division").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Division>("WKSAModel.FK_CompetitorOlympicDivisionHyungBup_Division", "Division").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Division> DivisionReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Division>("WKSAModel.FK_CompetitorOlympicDivisionHyungBup_Division", "Division");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Division>("WKSAModel.FK_CompetitorOlympicDivisionHyungBup_Division", "Division", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_CompetitorOlympicDivisionHyungBup_HyungBup", "HyungBup")]
+        public HyungBup HyungBup
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<HyungBup>("WKSAModel.FK_CompetitorOlympicDivisionHyungBup_HyungBup", "HyungBup").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<HyungBup>("WKSAModel.FK_CompetitorOlympicDivisionHyungBup_HyungBup", "HyungBup").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<HyungBup> HyungBupReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<HyungBup>("WKSAModel.FK_CompetitorOlympicDivisionHyungBup_HyungBup", "HyungBup");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<HyungBup>("WKSAModel.FK_CompetitorOlympicDivisionHyungBup_HyungBup", "HyungBup", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="WKSAModel", Name="CompetitorOlympicDivisionStep")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class CompetitorOlympicDivisionStep : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new CompetitorOlympicDivisionStep object.
+        /// </summary>
+        /// <param name="competitorId">Initial value of the CompetitorId property.</param>
+        /// <param name="divisionId">Initial value of the DivisionId property.</param>
+        /// <param name="divisionStepId">Initial value of the DivisionStepId property.</param>
+        /// <param name="judge1">Initial value of the Judge1 property.</param>
+        /// <param name="judge2">Initial value of the Judge2 property.</param>
+        /// <param name="judge3">Initial value of the Judge3 property.</param>
+        /// <param name="total">Initial value of the Total property.</param>
+        public static CompetitorOlympicDivisionStep CreateCompetitorOlympicDivisionStep(global::System.Int32 competitorId, global::System.Int32 divisionId, global::System.Int32 divisionStepId, global::System.Int32 judge1, global::System.Int32 judge2, global::System.Int32 judge3, global::System.Decimal total)
+        {
+            CompetitorOlympicDivisionStep competitorOlympicDivisionStep = new CompetitorOlympicDivisionStep();
+            competitorOlympicDivisionStep.CompetitorId = competitorId;
+            competitorOlympicDivisionStep.DivisionId = divisionId;
+            competitorOlympicDivisionStep.DivisionStepId = divisionStepId;
+            competitorOlympicDivisionStep.Judge1 = judge1;
+            competitorOlympicDivisionStep.Judge2 = judge2;
+            competitorOlympicDivisionStep.Judge3 = judge3;
+            competitorOlympicDivisionStep.Total = total;
+            return competitorOlympicDivisionStep;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 CompetitorId
+        {
+            get
+            {
+                return _CompetitorId;
+            }
+            set
+            {
+                if (_CompetitorId != value)
+                {
+                    OnCompetitorIdChanging(value);
+                    ReportPropertyChanging("CompetitorId");
+                    _CompetitorId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("CompetitorId");
+                    OnCompetitorIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _CompetitorId;
+        partial void OnCompetitorIdChanging(global::System.Int32 value);
+        partial void OnCompetitorIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 DivisionId
+        {
+            get
+            {
+                return _DivisionId;
+            }
+            set
+            {
+                if (_DivisionId != value)
+                {
+                    OnDivisionIdChanging(value);
+                    ReportPropertyChanging("DivisionId");
+                    _DivisionId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("DivisionId");
+                    OnDivisionIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _DivisionId;
+        partial void OnDivisionIdChanging(global::System.Int32 value);
+        partial void OnDivisionIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 DivisionStepId
+        {
+            get
+            {
+                return _DivisionStepId;
+            }
+            set
+            {
+                if (_DivisionStepId != value)
+                {
+                    OnDivisionStepIdChanging(value);
+                    ReportPropertyChanging("DivisionStepId");
+                    _DivisionStepId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("DivisionStepId");
+                    OnDivisionStepIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _DivisionStepId;
+        partial void OnDivisionStepIdChanging(global::System.Int32 value);
+        partial void OnDivisionStepIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Judge1
+        {
+            get
+            {
+                return _Judge1;
+            }
+            set
+            {
+                OnJudge1Changing(value);
+                ReportPropertyChanging("Judge1");
+                _Judge1 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Judge1");
+                OnJudge1Changed();
+            }
+        }
+        private global::System.Int32 _Judge1;
+        partial void OnJudge1Changing(global::System.Int32 value);
+        partial void OnJudge1Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Judge2
+        {
+            get
+            {
+                return _Judge2;
+            }
+            set
+            {
+                OnJudge2Changing(value);
+                ReportPropertyChanging("Judge2");
+                _Judge2 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Judge2");
+                OnJudge2Changed();
+            }
+        }
+        private global::System.Int32 _Judge2;
+        partial void OnJudge2Changing(global::System.Int32 value);
+        partial void OnJudge2Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Judge3
+        {
+            get
+            {
+                return _Judge3;
+            }
+            set
+            {
+                OnJudge3Changing(value);
+                ReportPropertyChanging("Judge3");
+                _Judge3 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Judge3");
+                OnJudge3Changed();
+            }
+        }
+        private global::System.Int32 _Judge3;
+        partial void OnJudge3Changing(global::System.Int32 value);
+        partial void OnJudge3Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Judge4
+        {
+            get
+            {
+                return _Judge4;
+            }
+            set
+            {
+                OnJudge4Changing(value);
+                ReportPropertyChanging("Judge4");
+                _Judge4 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Judge4");
+                OnJudge4Changed();
+            }
+        }
+        private Nullable<global::System.Int32> _Judge4;
+        partial void OnJudge4Changing(Nullable<global::System.Int32> value);
+        partial void OnJudge4Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Judge5
+        {
+            get
+            {
+                return _Judge5;
+            }
+            set
+            {
+                OnJudge5Changing(value);
+                ReportPropertyChanging("Judge5");
+                _Judge5 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Judge5");
+                OnJudge5Changed();
+            }
+        }
+        private Nullable<global::System.Int32> _Judge5;
+        partial void OnJudge5Changing(Nullable<global::System.Int32> value);
+        partial void OnJudge5Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Total
+        {
+            get
+            {
+                return _Total;
+            }
+            set
+            {
+                OnTotalChanging(value);
+                ReportPropertyChanging("Total");
+                _Total = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Total");
+                OnTotalChanged();
+            }
+        }
+        private global::System.Decimal _Total;
+        partial void OnTotalChanging(global::System.Decimal value);
+        partial void OnTotalChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_CompetitorOlympicDivisionStep_Competitor", "Competitor")]
+        public Competitor Competitor
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Competitor>("WKSAModel.FK_CompetitorOlympicDivisionStep_Competitor", "Competitor").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Competitor>("WKSAModel.FK_CompetitorOlympicDivisionStep_Competitor", "Competitor").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Competitor> CompetitorReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Competitor>("WKSAModel.FK_CompetitorOlympicDivisionStep_Competitor", "Competitor");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Competitor>("WKSAModel.FK_CompetitorOlympicDivisionStep_Competitor", "Competitor", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_CompetitorOlympicDivisionStep_OlympicDivisionStep", "OlympicDivisionStep")]
+        public OlympicDivisionStep OlympicDivisionStep
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<OlympicDivisionStep>("WKSAModel.FK_CompetitorOlympicDivisionStep_OlympicDivisionStep", "OlympicDivisionStep").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<OlympicDivisionStep>("WKSAModel.FK_CompetitorOlympicDivisionStep_OlympicDivisionStep", "OlympicDivisionStep").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<OlympicDivisionStep> OlympicDivisionStepReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<OlympicDivisionStep>("WKSAModel.FK_CompetitorOlympicDivisionStep_OlympicDivisionStep", "OlympicDivisionStep");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<OlympicDivisionStep>("WKSAModel.FK_CompetitorOlympicDivisionStep_OlympicDivisionStep", "OlympicDivisionStep", value);
                 }
             }
         }
@@ -1396,6 +2911,28 @@ namespace WKSADB
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_CompetitorDetails_Country", "CompetitorDetail")]
+        public EntityCollection<CompetitorDetail> CompetitorDetails
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CompetitorDetail>("WKSAModel.FK_CompetitorDetails_Country", "CompetitorDetail");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CompetitorDetail>("WKSAModel.FK_CompetitorDetails_Country", "CompetitorDetail", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -1418,7 +2955,8 @@ namespace WKSADB
         /// <param name="divisionTypeId">Initial value of the DivisionTypeId property.</param>
         /// <param name="rankId">Initial value of the RankId property.</param>
         /// <param name="ageGroupId">Initial value of the AgeGroupId property.</param>
-        public static Division CreateDivision(global::System.Int32 divisionId, global::System.String divisionName, global::System.Int32 divisionTypeId, global::System.Int32 rankId, global::System.Int32 ageGroupId)
+        /// <param name="isOlympicDivision">Initial value of the IsOlympicDivision property.</param>
+        public static Division CreateDivision(global::System.Int32 divisionId, global::System.String divisionName, global::System.Int32 divisionTypeId, global::System.Int32 rankId, global::System.Int32 ageGroupId, global::System.Boolean isOlympicDivision)
         {
             Division division = new Division();
             division.DivisionId = divisionId;
@@ -1426,6 +2964,7 @@ namespace WKSADB
             division.DivisionTypeId = divisionTypeId;
             division.RankId = rankId;
             division.AgeGroupId = ageGroupId;
+            division.IsOlympicDivision = isOlympicDivision;
             return division;
         }
 
@@ -1578,6 +3117,30 @@ namespace WKSADB
         private global::System.String _Gender;
         partial void OnGenderChanging(global::System.String value);
         partial void OnGenderChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsOlympicDivision
+        {
+            get
+            {
+                return _IsOlympicDivision;
+            }
+            set
+            {
+                OnIsOlympicDivisionChanging(value);
+                ReportPropertyChanging("IsOlympicDivision");
+                _IsOlympicDivision = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsOlympicDivision");
+                OnIsOlympicDivisionChanged();
+            }
+        }
+        private global::System.Boolean _IsOlympicDivision;
+        partial void OnIsOlympicDivisionChanging(global::System.Boolean value);
+        partial void OnIsOlympicDivisionChanged();
 
         #endregion
     
@@ -1737,6 +3300,50 @@ namespace WKSADB
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CompetitorDivision>("WKSAModel.FK_CompetitorDivision_Division", "CompetitorDivision", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_CompetitorOlympicDivisionHyungBup_Division", "CompetitorOlympicDivisionHyungBup")]
+        public EntityCollection<CompetitorOlympicDivisionHyungBup> CompetitorOlympicDivisionHyungBups
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CompetitorOlympicDivisionHyungBup>("WKSAModel.FK_CompetitorOlympicDivisionHyungBup_Division", "CompetitorOlympicDivisionHyungBup");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CompetitorOlympicDivisionHyungBup>("WKSAModel.FK_CompetitorOlympicDivisionHyungBup_Division", "CompetitorOlympicDivisionHyungBup", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_OlympicDivisionStep_Division", "OlympicDivisionStep")]
+        public EntityCollection<OlympicDivisionStep> OlympicDivisionSteps
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<OlympicDivisionStep>("WKSAModel.FK_OlympicDivisionStep_Division", "OlympicDivisionStep");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<OlympicDivisionStep>("WKSAModel.FK_OlympicDivisionStep_Division", "OlympicDivisionStep", value);
                 }
             }
         }
@@ -2159,6 +3766,311 @@ namespace WKSADB
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Tournament>("WKSAModel.TournamentGrandChampion", "Tournament", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="WKSAModel", Name="HyungBup")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class HyungBup : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new HyungBup object.
+        /// </summary>
+        /// <param name="hyungBupId">Initial value of the HyungBupId property.</param>
+        /// <param name="description">Initial value of the Description property.</param>
+        public static HyungBup CreateHyungBup(global::System.Int32 hyungBupId, global::System.String description)
+        {
+            HyungBup hyungBup = new HyungBup();
+            hyungBup.HyungBupId = hyungBupId;
+            hyungBup.Description = description;
+            return hyungBup;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 HyungBupId
+        {
+            get
+            {
+                return _HyungBupId;
+            }
+            set
+            {
+                if (_HyungBupId != value)
+                {
+                    OnHyungBupIdChanging(value);
+                    ReportPropertyChanging("HyungBupId");
+                    _HyungBupId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("HyungBupId");
+                    OnHyungBupIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _HyungBupId;
+        partial void OnHyungBupIdChanging(global::System.Int32 value);
+        partial void OnHyungBupIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_CompetitorOlympicDivisionHyungBup_HyungBup", "CompetitorOlympicDivisionHyungBup")]
+        public EntityCollection<CompetitorOlympicDivisionHyungBup> CompetitorOlympicDivisionHyungBups
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CompetitorOlympicDivisionHyungBup>("WKSAModel.FK_CompetitorOlympicDivisionHyungBup_HyungBup", "CompetitorOlympicDivisionHyungBup");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CompetitorOlympicDivisionHyungBup>("WKSAModel.FK_CompetitorOlympicDivisionHyungBup_HyungBup", "CompetitorOlympicDivisionHyungBup", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="WKSAModel", Name="OlympicDivisionStep")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class OlympicDivisionStep : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new OlympicDivisionStep object.
+        /// </summary>
+        /// <param name="divisionId">Initial value of the DivisionId property.</param>
+        /// <param name="divisionStepId">Initial value of the DivisionStepId property.</param>
+        /// <param name="description">Initial value of the Description property.</param>
+        /// <param name="baseValue">Initial value of the BaseValue property.</param>
+        public static OlympicDivisionStep CreateOlympicDivisionStep(global::System.Int32 divisionId, global::System.Int32 divisionStepId, global::System.String description, global::System.Decimal baseValue)
+        {
+            OlympicDivisionStep olympicDivisionStep = new OlympicDivisionStep();
+            olympicDivisionStep.DivisionId = divisionId;
+            olympicDivisionStep.DivisionStepId = divisionStepId;
+            olympicDivisionStep.Description = description;
+            olympicDivisionStep.BaseValue = baseValue;
+            return olympicDivisionStep;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 DivisionId
+        {
+            get
+            {
+                return _DivisionId;
+            }
+            set
+            {
+                if (_DivisionId != value)
+                {
+                    OnDivisionIdChanging(value);
+                    ReportPropertyChanging("DivisionId");
+                    _DivisionId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("DivisionId");
+                    OnDivisionIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _DivisionId;
+        partial void OnDivisionIdChanging(global::System.Int32 value);
+        partial void OnDivisionIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 DivisionStepId
+        {
+            get
+            {
+                return _DivisionStepId;
+            }
+            set
+            {
+                if (_DivisionStepId != value)
+                {
+                    OnDivisionStepIdChanging(value);
+                    ReportPropertyChanging("DivisionStepId");
+                    _DivisionStepId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("DivisionStepId");
+                    OnDivisionStepIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _DivisionStepId;
+        partial void OnDivisionStepIdChanging(global::System.Int32 value);
+        partial void OnDivisionStepIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal BaseValue
+        {
+            get
+            {
+                return _BaseValue;
+            }
+            set
+            {
+                OnBaseValueChanging(value);
+                ReportPropertyChanging("BaseValue");
+                _BaseValue = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("BaseValue");
+                OnBaseValueChanged();
+            }
+        }
+        private global::System.Decimal _BaseValue;
+        partial void OnBaseValueChanging(global::System.Decimal value);
+        partial void OnBaseValueChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_CompetitorOlympicDivisionStep_OlympicDivisionStep", "CompetitorOlympicDivisionStep")]
+        public EntityCollection<CompetitorOlympicDivisionStep> CompetitorOlympicDivisionSteps
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CompetitorOlympicDivisionStep>("WKSAModel.FK_CompetitorOlympicDivisionStep_OlympicDivisionStep", "CompetitorOlympicDivisionStep");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CompetitorOlympicDivisionStep>("WKSAModel.FK_CompetitorOlympicDivisionStep_OlympicDivisionStep", "CompetitorOlympicDivisionStep", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("WKSAModel", "FK_OlympicDivisionStep_Division", "Division")]
+        public Division Division
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Division>("WKSAModel.FK_OlympicDivisionStep_Division", "Division").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Division>("WKSAModel.FK_OlympicDivisionStep_Division", "Division").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Division> DivisionReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Division>("WKSAModel.FK_OlympicDivisionStep_Division", "Division");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Division>("WKSAModel.FK_OlympicDivisionStep_Division", "Division", value);
                 }
             }
         }
@@ -3679,6 +5591,126 @@ namespace WKSADB
         private global::System.Boolean _MedalsReceived;
         partial void OnMedalsReceivedChanging(global::System.Boolean value);
         partial void OnMedalsReceivedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Judge1
+        {
+            get
+            {
+                return _Judge1;
+            }
+            set
+            {
+                OnJudge1Changing(value);
+                ReportPropertyChanging("Judge1");
+                _Judge1 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Judge1");
+                OnJudge1Changed();
+            }
+        }
+        private global::System.String _Judge1;
+        partial void OnJudge1Changing(global::System.String value);
+        partial void OnJudge1Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Judge2
+        {
+            get
+            {
+                return _Judge2;
+            }
+            set
+            {
+                OnJudge2Changing(value);
+                ReportPropertyChanging("Judge2");
+                _Judge2 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Judge2");
+                OnJudge2Changed();
+            }
+        }
+        private global::System.String _Judge2;
+        partial void OnJudge2Changing(global::System.String value);
+        partial void OnJudge2Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Judge3
+        {
+            get
+            {
+                return _Judge3;
+            }
+            set
+            {
+                OnJudge3Changing(value);
+                ReportPropertyChanging("Judge3");
+                _Judge3 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Judge3");
+                OnJudge3Changed();
+            }
+        }
+        private global::System.String _Judge3;
+        partial void OnJudge3Changing(global::System.String value);
+        partial void OnJudge3Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Judge4
+        {
+            get
+            {
+                return _Judge4;
+            }
+            set
+            {
+                OnJudge4Changing(value);
+                ReportPropertyChanging("Judge4");
+                _Judge4 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Judge4");
+                OnJudge4Changed();
+            }
+        }
+        private global::System.String _Judge4;
+        partial void OnJudge4Changing(global::System.String value);
+        partial void OnJudge4Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Judge5
+        {
+            get
+            {
+                return _Judge5;
+            }
+            set
+            {
+                OnJudge5Changing(value);
+                ReportPropertyChanging("Judge5");
+                _Judge5 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Judge5");
+                OnJudge5Changed();
+            }
+        }
+        private global::System.String _Judge5;
+        partial void OnJudge5Changing(global::System.String value);
+        partial void OnJudge5Changed();
 
         #endregion
     

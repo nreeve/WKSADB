@@ -244,5 +244,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DeleteCompetitorOlympicSteps" FunctionName="WKSAModel.Store.DeleteCompetitorOlympicSteps" />
   </EntityContainerMapping>
 </Mapping>

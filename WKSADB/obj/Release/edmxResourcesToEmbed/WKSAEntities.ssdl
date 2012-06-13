@@ -186,11 +186,11 @@
     </Key>
     <Property Name="CompetitorId" Type="int" Nullable="false" />
     <Property Name="DivisionId" Type="int" Nullable="false" />
-    <Property Name="Judge1" Type="decimal" Precision="5" />
-    <Property Name="Judge2" Type="decimal" Precision="5" />
-    <Property Name="Judge3" Type="decimal" Precision="5" />
-    <Property Name="Judge4" Type="decimal" Precision="5" />
-    <Property Name="Judge5" Type="decimal" Precision="5" />
+    <Property Name="Judge1" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Judge2" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Judge3" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Judge4" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Judge5" Type="decimal" Precision="5" Scale="2" />
     <Property Name="Result" Type="int" />
     <Property Name="TechnicalScore" Type="decimal" Precision="5" Scale="2" />
     <Property Name="HyungBupScore" Type="decimal" Precision="5" Scale="2" />
@@ -735,4 +735,8 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="DeleteCompetitorOlympicSteps" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompetitorId" Type="int" Mode="In" />
+    <Parameter Name="DivisionId" Type="int" Mode="In" />
+  </Function>
 </Schema>
